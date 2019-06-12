@@ -7,8 +7,8 @@ export default class App extends Component {
     placeName: ''
   };
 
-  placeNameChangedHandler = (e) => {
-    alert(e);
+  placeNameChangedHandler = (val) => {
+    this.setState({placeName: val});
   };
 
   render() {
