@@ -6,7 +6,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start! working on your app!</Text>
+        <Text>Something changed</Text>
       </View>
     );
   }
