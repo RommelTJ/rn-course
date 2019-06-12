@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default class App extends Component {
+
+  state = {
+    placeName: ''
+  };
+
+  placeNameChangedHandler = (e) => {
+    alert(e);
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Something changed</Text>
+        <TextInput
+          style={{width: 300, borderColor: "black"}}
+          value={this.state.placeName}
+          onChangeText={this.placeNameChangedHandler}
+        />
       </View>
     );
   }
