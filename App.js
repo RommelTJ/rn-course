@@ -16,6 +16,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <TextInput
           style={{width: 300, borderColor: "black", borderWidth: 1}}
+          placeholder="An awesome place"
           value={this.state.placeName}
           onChangeText={this.placeNameChangedHandler}
         />
