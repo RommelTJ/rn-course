@@ -14,7 +14,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
+        <View style={styles.inputContainer}>
           <TextInput
             style={{width: 300}}
             placeholder="An awesome place"
@@ -39,5 +39,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start'
+  },
+  inputContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 });
