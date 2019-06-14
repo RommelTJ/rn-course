@@ -16,12 +16,12 @@ export default class App extends Component {
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <TextInput
-            style={{width: 300}}
+            style={styles.placeInput}
             placeholder="An awesome place"
             value={this.state.placeName}
             onChangeText={this.placeNameChangedHandler}
           />
-          <Button title="Add" />
+          <Button style={styles.placeButton} title="Add" />
         </View>
       </View>
     );
@@ -42,6 +42,14 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%"
+  },
+  placeInput: {
+    width: "70%"
+  },
+  placeButton: {
+    width: "30%"
   }
 });
