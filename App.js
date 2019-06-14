@@ -14,13 +14,15 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
-          style={{width: 300}}
-          placeholder="An awesome place"
-          value={this.state.placeName}
-          onChangeText={this.placeNameChangedHandler}
-        />
-        <Button title="Add" />
+        <View>
+          <TextInput
+            style={{width: 300}}
+            placeholder="An awesome place"
+            value={this.state.placeName}
+            onChangeText={this.placeNameChangedHandler}
+          />
+          <Button title="Add" />
+        </View>
       </View>
     );
   }
