@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default class App extends Component {
 
@@ -20,6 +20,7 @@ export default class App extends Component {
           value={this.state.placeName}
           onChangeText={this.placeNameChangedHandler}
         />
+        <Button title="Add" />
       </View>
     );
   }
