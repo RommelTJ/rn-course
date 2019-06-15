@@ -20,8 +20,8 @@ export default class App extends Component {
   };
 
   render() {
-    const placesOutput = this.state.places.map(place => {
-      return <Text>{place}</Text>;
+    const placesOutput = this.state.places.map((place, idx) => {
+      return <Text key={idx}>{place}</Text>;
     });
 
     return (
