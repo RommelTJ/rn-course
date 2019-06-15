@@ -4,11 +4,19 @@ import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 export default class App extends Component {
 
   state = {
-    placeName: ''
+    placeName: '',
+    places: []
   };
 
   placeNameChangedHandler = (val) => {
     this.setState({placeName: val});
+  };
+
+  placeSubmitHandler = () => {
+    if (this.state.placeName.trim() === "") { return; }
+    this.setState(prevState => {
+      return { places: prevState.places.concat(prevState.placeName)};
+    });
   };
 
   render() {
@@ -21,7 +29,7 @@ export default class App extends Component {
             value={this.state.placeName}
             onChangeText={this.placeNameChangedHandler}
           />
-          <Button style={styles.placeButton} title="Add" />
+          <Button style={styles.placeButton} title="Add" onPress={this.placeSubmitHandler}/>
         </View>
       </View>
     );
