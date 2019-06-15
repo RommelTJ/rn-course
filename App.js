@@ -20,6 +20,10 @@ export default class App extends Component {
   };
 
   render() {
+    const placesOutput = this.state.places.map(place => {
+      return <Text>{place}</Text>;
+    });
+
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
@@ -30,6 +34,9 @@ export default class App extends Component {
             onChangeText={this.placeNameChangedHandler}
           />
           <Button style={styles.placeButton} title="Add" onPress={this.placeSubmitHandler}/>
+        </View>
+        <View>
+          {placesOutput}
         </View>
       </View>
     );
