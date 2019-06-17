@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
   listItem: {
     width: "100%",
     padding: 10,
-    backgroundColor: "#eee"
+    backgroundColor: "#eee",
+    margin: 10
   }
 });
 
