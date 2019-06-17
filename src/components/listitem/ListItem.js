@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableNativeFeedback } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const listItem = (props) => {
   return (
-    <TouchableNativeFeedback onPress={props.onItemPressed}>
+    <TouchableOpacity onPress={props.onItemPressed}>
       <View style={styles.listItem} >
         <Text>{props.placeName}</Text>
       </View>
-    </TouchableNativeFeedback>
+    </TouchableOpacity>
   );
 };
 
