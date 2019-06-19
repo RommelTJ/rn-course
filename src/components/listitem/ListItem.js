@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   placeImage: {
-    marginRight: 8
+    marginRight: 8,
+    maxHeight: 30,
+    width: 30
   }
 });
 
