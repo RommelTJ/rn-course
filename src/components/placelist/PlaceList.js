@@ -8,7 +8,13 @@ const placeList = (props) => {
       style={styles.listContainer}
       data={props.places}
       renderItem={(info) => {
-        return <ListItem placeName={info.item.value} onItemPressed={() => props.onItemDeleted(info.item.key)} />;
+        return (
+          <ListItem
+            placeName={info.item.name}
+            placeImage={info.item.image}
+            onItemPressed={() => props.onItemDeleted(info.item.key)}
+          />
+        );
       }}
     />
   );
