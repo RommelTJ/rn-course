@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   placeImage: {
     marginRight: 8,
-    maxHeight: 30,
+    height: 30,
     width: 30
   }
 });
