@@ -7,14 +7,14 @@ const placeDetail = (props) => {
   if (props.selectedPlace) {
     modalContent = (
       <View>
-        <Image source={props.selectedPlace.placeImage}/>
-        <Text>{props.selectedPlace.placeName}</Text>
+        <Image source={props.selectedPlace.image}/>
+        <Text>{props.selectedPlace.name}</Text>
       </View>
     );
   }
 
   return (
-    <Modal>
+    <Modal visible={props.selectedPlace !== null} animationType="slide" >
       <View style={styles.modalContainer}>
         {modalContent}
         <View>
