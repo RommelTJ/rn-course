@@ -2,11 +2,21 @@ import React from 'react';
 import { Modal, Button, View, Image, Text } from 'react-native';
 
 const placeDetail = (props) => {
+  let modalContent = null;
+
+  if (props.selectedPlace) {
+    modalContent = (
+      <View>
+        <Image source={props.selectedPlace.placeImage}/>
+        <Text>{props.selectedPlace.placeName}</Text>
+      </View>
+    );
+  }
+  
   return (
     <Modal>
       <View>
-        <Image source={props.placeImage}/>
-        <Text>{props.placeName}</Text>
+        {modalContent}
         <View>
           <Button />
           <Button />
