@@ -28,7 +28,9 @@ export default class App extends Component {
   placeSelectedHandler = (key) => {
     this.setState(prevState => {
       return {
-        selectedPlaced: prevState.places.find(place => place.key === key)
+        selectedPlace: prevState.places.find(place => {
+          return place.key === key;
+        })
       }
     });
 
