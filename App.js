@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PlaceList from "./src/components/placelist/PlaceList";
 import PlaceInput from "./src/components/placeinput/PlaceInput";
-// import placeImage from "./src/assets/SanDiego.jpg";
+import PlaceDetail from "./src/components/placedetail/PlaceDetail";
 
 export default class App extends Component {
 
   state = {
-    places: []
+    places: [],
+    selectedPlace: null
   };
 
   placeAddedHandler = (placeName) => {
@@ -24,17 +25,24 @@ export default class App extends Component {
     });
   };
 
-  placeDeletedHandler = (key) => {
-    this.setState((prevState) => {
-      return { places: prevState.places.filter((place, idx) => place.key !== key)};
-    })
+  placeSelectedHandler = (key) => {
+    this.setState(prevState => {
+      return {
+        selectedPlaced: prevState.places.find(place => place.key === key)
+      }
+    });
+
+    // this.setState((prevState) => {
+    //   return { places: prevState.places.filter((place, idx) => place.key !== key)};
+    // })
   };
 
   render() {
     return (
       <View style={styles.container}>
+        <PlaceDetail selectedPlace={this.state.selectedPlace} />
         <PlaceInput onPlaceAdded={this.placeAddedHandler} />
-        <PlaceList places={this.state.places} onItemDeleted={this.placeDeletedHandler} />
+        <PlaceList places={this.state.places} onItemSelected={this.placeSelectedHandler} />
       </View>
     );
   }
