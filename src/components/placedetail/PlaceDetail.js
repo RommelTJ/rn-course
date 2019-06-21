@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, View, Image, Text } from 'react-native';
+import { Modal, Button, View, Image, Text, StyleSheet } from 'react-native';
 
 const placeDetail = (props) => {
   let modalContent = null;
@@ -12,18 +12,24 @@ const placeDetail = (props) => {
       </View>
     );
   }
-  
+
   return (
     <Modal>
-      <View>
+      <View style={styles.modalContainer}>
         {modalContent}
         <View>
-          <Button />
-          <Button />
+          <Button title="Delete" color="red" />
+          <Button title="Close" />
         </View>
       </View>
     </Modal>
   )
 };
+
+const styles = StyleSheet.create({
+  modalContainer: {
+    margin: 22
+  }
+});
 
 export default placeDetail;
