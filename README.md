@@ -1,6 +1,6 @@
 # React Native Course
 
-Version: 0.0.2 - 10 Jun 2019
+Version: 0.0.3 - 22 Jun 2019
 
 ## Description
 
