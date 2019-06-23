@@ -1,4 +1,4 @@
-import {ADD_PLACE, DELETE_PLACE} from "../actions/actionTypes";
+import {ADD_PLACE, DELETE_PLACE, SELECT_PLACE} from "../actions/actionTypes";
 
 const initialState = {
   places: [],
@@ -25,6 +25,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         places: state.places.filter((place) => place.key !== state.selectedPlace.key),
         selectedPlace: null
+      };
+    case SELECT_PLACE:
+      return {
+        ...state,
+        selectedPlace: state.places.find(place => place.key === action.payload)
       };
     default:
       return state;
