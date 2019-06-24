@@ -1,76 +1,72 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Provider } from 'react-redux';
-import configureStore from './src/store/configureStore';
+import { Provider, connect } from 'react-redux';
 import PlaceList from "./src/components/placelist/PlaceList";
 import PlaceInput from "./src/components/placeinput/PlaceInput";
 import PlaceDetail from "./src/components/placedetail/PlaceDetail";
+import { addPlace, deletePlace, selectPlace, deselectPlace } from './src/store/actions/index';
+import configureStore from "./src/store/configureStore";
 
-export default class App extends Component {
-
-  state = {
-    places: [],
-    selectedPlace: null
+const mapStateToProps = state => {
+  return {
+    places: state.places.places,
+    selectedPlace: state.places.selectedPlace
   };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddPlace: (name) => dispatch(addPlace(name)),
+    onDeletePlace: () => dispatch(deletePlace()),
+    onSelectPlace: (key) => dispatch(selectPlace(key)),
+    onDeselectPlace: () => dispatch(deselectPlace())
+  };
+};
+
+class App extends Component {
 
   constructor(props) {
     super(props);
-    this.store = configureStore();
   }
 
   placeAddedHandler = (placeName) => {
-    this.setState(prevState => {
-      return { places: prevState.places.concat(
-        {
-          key: Math.random().toString(),
-          name: placeName,
-          image: {
-            uri: "https://www.gannett-cdn.com/-mm-/fa888cd8ba5934840efa2cd0be4e477c78b2b1d1/c=0-42-2118-1239&r=x1683&c=3200x1680/local/-/media/2016/07/25/Phoenix/Phoenix/636050500824809040-ThinkstockPhotos-516182342.jpg"
-          }
-        }
-      )};
-    });
+    this.props.onAddPlace(placeName);
   };
 
   placeSelectedHandler = (key) => {
-    this.setState(prevState => {
-      return {
-        selectedPlace: prevState.places.find(place => {
-          return place.key === key;
-        })
-      }
-    });
+    this.props.onSelectPlace(key);
   };
 
   placeDeletedHandler = () => {
-    this.setState((prevState) => {
-      return {
-        places: prevState.places.filter((place) => place.key !== prevState.selectedPlace.key),
-        selectedPlace: null
-      };
-    })
+    this.props.onDeletePlace();
   };
 
   modalClosedHandler = () => {
-    this.setState({selectedPlace: null});
+    this.props.onDeselectPlace();
   };
 
   render() {
     return (
-      <Provider store={this.store}>
-        <View style={styles.container}>
-          <PlaceDetail selectedPlace={this.state.selectedPlace}
-                       onItemDeleted={this.placeDeletedHandler}
-                       onModalClosed={this.modalClosedHandler}
-          />
-          <PlaceInput onPlaceAdded={this.placeAddedHandler} />
-          <PlaceList places={this.state.places} onItemSelected={this.placeSelectedHandler} />
-        </View>
-      </Provider>
+      <View style={styles.container}>
+        <PlaceDetail selectedPlace={this.props.selectedPlace}
+                     onItemDeleted={this.placeDeletedHandler}
+                     onModalClosed={this.modalClosedHandler}
+        />
+        <PlaceInput onPlaceAdded={this.placeAddedHandler} />
+        <PlaceList places={this.props.places} onItemSelected={this.placeSelectedHandler} />
+      </View>
     );
   }
 
 }
+
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default RootComponent = () => (
+  <Provider store={configureStore()}>
+    <ConnectedApp />
+  </Provider>
+);
 
 const styles = StyleSheet.create({
   container: {
