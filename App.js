@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { Provider } from 'react-redux';
+import configureStore from './src/store/configureStore';
 import PlaceList from "./src/components/placelist/PlaceList";
 import PlaceInput from "./src/components/placeinput/PlaceInput";
 import PlaceDetail from "./src/components/placedetail/PlaceDetail";
@@ -10,6 +12,11 @@ export default class App extends Component {
     places: [],
     selectedPlace: null
   };
+
+  constructor(props) {
+    super(props);
+    this.store = configureStore();
+  }
 
   placeAddedHandler = (placeName) => {
     this.setState(prevState => {
@@ -50,14 +57,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <PlaceDetail selectedPlace={this.state.selectedPlace}
-                     onItemDeleted={this.placeDeletedHandler}
-                     onModalClosed={this.modalClosedHandler}
-        />
-        <PlaceInput onPlaceAdded={this.placeAddedHandler} />
-        <PlaceList places={this.state.places} onItemSelected={this.placeSelectedHandler} />
-      </View>
+      <Provider store={this.store}>
+        <View style={styles.container}>
+          <PlaceDetail selectedPlace={this.state.selectedPlace}
+                       onItemDeleted={this.placeDeletedHandler}
+                       onModalClosed={this.modalClosedHandler}
+          />
+          <PlaceInput onPlaceAdded={this.placeAddedHandler} />
+          <PlaceList places={this.state.places} onItemSelected={this.placeSelectedHandler} />
+        </View>
+      </Provider>
     );
   }
 
