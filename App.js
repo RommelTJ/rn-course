@@ -6,7 +6,6 @@ import PlaceInput from "./src/components/placeinput/PlaceInput";
 import PlaceDetail from "./src/components/placedetail/PlaceDetail";
 import { addPlace, deletePlace, selectPlace, deselectPlace } from './src/store/actions/index';
 import configureStore from "./src/store/configureStore";
-import { Ionicons } from '@expo/vector-icons';
 
 const mapStateToProps = state => {
   return {
@@ -54,7 +53,6 @@ class App extends Component {
                      onModalClosed={this.modalClosedHandler}
         />
         <PlaceInput onPlaceAdded={this.placeAddedHandler} />
-        <Ionicons name="md-checkmark-circle" size={32} color="green" />
         <PlaceList places={this.props.places} onItemSelected={this.placeSelectedHandler} />
       </View>
     );
