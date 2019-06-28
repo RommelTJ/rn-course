@@ -6,22 +6,14 @@ import PlaceInput from "./src/components/placeinput/PlaceInput";
 import PlaceDetail from "./src/components/placedetail/PlaceDetail";
 import { addPlace, deletePlace, selectPlace, deselectPlace } from './src/store/actions/index';
 import configureStore from "./src/store/configureStore";
+import {createStackNavigator, createAppContainer} from 'react-navigation';
+import HomeScreen from "./src/components/HomeScreen";
+import ProfileScreen from "./src/components/ProfileScreen";
 
-const mapStateToProps = state => {
-  return {
-    places: state.places.places,
-    selectedPlace: state.places.selectedPlace
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddPlace: (name) => dispatch(addPlace(name)),
-    onDeletePlace: () => dispatch(deletePlace()),
-    onSelectPlace: (key) => dispatch(selectPlace(key)),
-    onDeselectPlace: () => dispatch(deselectPlace())
-  };
-};
+const MainNavigator = createStackNavigator({
+  Home: {screen: HomeScreen},
+  Profile: {screen: ProfileScreen},
+});
 
 class App extends Component {
 
@@ -60,7 +52,23 @@ class App extends Component {
 
 }
 
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+const mapStateToProps = state => {
+  return {
+    places: state.places.places,
+    selectedPlace: state.places.selectedPlace
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddPlace: (name) => dispatch(addPlace(name)),
+    onDeletePlace: () => dispatch(deletePlace()),
+    onSelectPlace: (key) => dispatch(selectPlace(key)),
+    onDeselectPlace: () => dispatch(deselectPlace())
+  };
+};
+
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(createAppContainer(MainNavigator));
 
 export default RootComponent = () => (
   <Provider store={configureStore()}>
