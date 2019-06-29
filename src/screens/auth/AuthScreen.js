@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { AsyncStorage, Button, View } from 'react-native';
 
 class AuthScreen extends Component {
 
@@ -7,10 +7,15 @@ class AuthScreen extends Component {
     title: 'Please sign in',
   };
 
+  _signInAsync = async () => {
+    await AsyncStorage.setItem('userToken', 'dummyToken');
+    this.props.navigation.navigate('App');
+  };
+
   render() {
     return (
       <View>
-        <Text>Auth Screen</Text>
+        <Button title="Sign in!" onPress={this._signInAsync} />
       </View>
     );
   }
