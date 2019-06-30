@@ -5,6 +5,7 @@ import AuthScreen from "./src/screens/auth/AuthScreen";
 import AuthLoadingScreen from "./src/screens/auth/AuthLoadingScreen";
 import FindPlaceScreen from "./src/screens/findplace/FindPlaceScreen";
 import SharePlaceScreen from "./src/screens/shareplace/SharePlaceScreen";
+import FindPlaceIconWithBadge from "./src/components/icons/FindPlaceIconWithBadge";
 
 const AuthStack = createStackNavigator({ Auth: AuthScreen });
 const AppStack = createBottomTabNavigator({
@@ -19,6 +20,9 @@ const AppStack = createBottomTabNavigator({
         let iconName;
         if (routeName === 'FindPlace') {
           iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+          // Sometimes we want to add badges to some icons.
+          // You can check the implementation below.
+          IconComponent = FindPlaceIconWithBadge;
         } else if (routeName === 'SharePlace') {
           iconName = `ios-options`;
         }
