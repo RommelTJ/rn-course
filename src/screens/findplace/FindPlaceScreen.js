@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, View, Text } from 'react-native';
+import {AsyncStorage, View, Text, StyleSheet} from 'react-native';
 
 class FindPlaceScreen extends Component {
   static navigationOptions = {
@@ -17,11 +17,24 @@ class FindPlaceScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text>Find Place</Text>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 60,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 10,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
+  }
+});
 
 export default FindPlaceScreen;
