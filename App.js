@@ -1,4 +1,7 @@
 import React from 'react';
+import { Provider, connect } from 'react-redux';
+import { addPlace, deletePlace, selectPlace, deselectPlace } from './src/store/actions/index';
+import configureStore from "./src/store/configureStore";
 import { Ionicons } from '@expo/vector-icons';
 import {createBottomTabNavigator, createSwitchNavigator, createStackNavigator, createAppContainer} from 'react-navigation';
 import AuthScreen from "./src/screens/auth/AuthScreen";
@@ -38,7 +41,23 @@ const AppStack = createBottomTabNavigator({
   }
 );
 
-export default createAppContainer(createSwitchNavigator(
+const mapStateToProps = state => {
+  return {
+    places: state.places.places,
+    selectedPlace: state.places.selectedPlace
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddPlace: (name) => dispatch(addPlace(name)),
+    onDeletePlace: () => dispatch(deletePlace()),
+    onSelectPlace: (key) => dispatch(selectPlace(key)),
+    onDeselectPlace: () => dispatch(deselectPlace())
+  };
+};
+
+const App = createAppContainer(createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
     App: AppStack,
@@ -49,3 +68,10 @@ export default createAppContainer(createSwitchNavigator(
   }
 ));
 
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default RootComponent = () => (
+  <Provider store={configureStore()}>
+    <ConnectedApp />
+  </Provider>
+);
