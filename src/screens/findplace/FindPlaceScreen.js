@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {AsyncStorage, View, Text, StyleSheet} from 'react-native';
+import { connect } from 'react-redux';
+import PlaceList from '../../components/placelist/PlaceList';
 
 class FindPlaceScreen extends Component {
   static navigationOptions = {
     title: 'Find a Place!',
-  };
-
-  _showMoreApp = () => {
-    this.props.navigation.navigate('Other');
   };
 
   _signOutAsync = async () => {
@@ -18,11 +16,17 @@ class FindPlaceScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Find Place</Text>
+        <PlaceList places={this.props.places} />
       </View>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    places: state.places.places
+  };
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -37,4 +41,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default FindPlaceScreen;
+export default connect(mapStateToProps)(FindPlaceScreen);
