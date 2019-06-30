@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {AsyncStorage, StyleSheet, View} from 'react-native';
 import PlaceInput from '../../components/placeinput/PlaceInput';
-import {addPlace, deletePlace} from "../../store/actions";
+import {addPlace} from "../../store/actions";
 
 class SharePlaceScreen extends Component {
   static navigationOptions = {
@@ -27,17 +27,9 @@ class SharePlaceScreen extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    places: state.places.places,
-    selectedPlace: state.places.selectedPlace
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
-    onAddPlace: (name) => dispatch(addPlace(name)),
-    onDeletePlace: () => dispatch(deletePlace())
+    onAddPlace: (name) => dispatch(addPlace(name))
   };
 };
 
@@ -54,4 +46,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SharePlaceScreen);
+export default connect(null, mapDispatchToProps)(SharePlaceScreen);
