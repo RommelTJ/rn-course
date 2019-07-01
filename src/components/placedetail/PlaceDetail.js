@@ -3,20 +3,8 @@ import { Button, View, Image, Text, StyleSheet, TouchableOpacity } from 'react-n
 import { Ionicons } from '@expo/vector-icons';
 
 const placeDetail = (props) => {
-  let modalContent = null;
-
-  if (props.selectedPlace) {
-    modalContent = (
-      <View>
-        <Image source={props.selectedPlace.image} style={styles.placeImage}/>
-        <Text style={styles.placeName}>{props.selectedPlace.name}</Text>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.modalContainer}>
-      {modalContent}
       <View>
         <TouchableOpacity onPress={props.onItemDeleted}>
           <View style={styles.deleteButton}>
