@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const placeDetailScreen = (props) => {
   return (
-    <View style={styles.modalContainer}>
+    <View style={styles.container}>
       <View>
         <TouchableOpacity onPress={props.onItemDeleted}>
           <View style={styles.deleteButton}>
@@ -18,7 +18,7 @@ const placeDetailScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  modalContainer: {
+  container: {
     margin: 22,
     marginTop: 64
   },
