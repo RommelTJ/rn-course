@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const placeDetail = (props) => {
@@ -15,19 +15,17 @@ const placeDetail = (props) => {
   }
 
   return (
-    <Modal onRequestClose={props.onModalClosed} visible={props.selectedPlace !== null} animationType="slide" >
-      <View style={styles.modalContainer}>
-        {modalContent}
-        <View>
-          <TouchableOpacity onPress={props.onItemDeleted}>
-            <View style={styles.deleteButton}>
-              <Ionicons size={32} name="ios-trash" color="red" />
-            </View>
-          </TouchableOpacity>
-          <Button title="Close" onPress={props.onModalClosed} />
-        </View>
+    <View style={styles.modalContainer}>
+      {modalContent}
+      <View>
+        <TouchableOpacity onPress={props.onItemDeleted}>
+          <View style={styles.deleteButton}>
+            <Ionicons size={32} name="ios-trash" color="red" />
+          </View>
+        </TouchableOpacity>
+        <Button title="Close" onPress={props.onModalClosed} />
       </View>
-    </Modal>
+    </View>
   )
 };
 
