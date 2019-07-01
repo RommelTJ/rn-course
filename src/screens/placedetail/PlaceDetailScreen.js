@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const placeDetail = (props) => {
+const placeDetailScreen = (props) => {
   return (
     <View style={styles.modalContainer}>
       <View>
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default placeDetail;
+export default placeDetailScreen;
