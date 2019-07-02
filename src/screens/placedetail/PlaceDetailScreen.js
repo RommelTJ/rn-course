@@ -11,7 +11,6 @@ const placeDetailScreen = (props) => {
             <Ionicons size={32} name="ios-trash" color="red" />
           </View>
         </TouchableOpacity>
-        <Button title="Close" onPress={props.onModalClosed} />
       </View>
     </View>
   )
