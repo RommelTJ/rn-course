@@ -8,9 +8,11 @@ import AuthScreen from "./src/screens/auth/AuthScreen";
 import AuthLoadingScreen from "./src/screens/auth/AuthLoadingScreen";
 import FindPlaceScreen from "./src/screens/findplace/FindPlaceScreen";
 import SharePlaceScreen from "./src/screens/shareplace/SharePlaceScreen";
+import PlaceDetailScreen from "./src/screens/placedetail/PlaceDetailScreen";
 import FindPlaceIconWithBadge from "./src/components/icons/FindPlaceIconWithBadge";
 
 const AuthStack = createStackNavigator({ Auth: AuthScreen });
+const FindPlaceStack = createStackNavigator({ PlaceDetail: PlaceDetailScreen });
 const AppStack = createBottomTabNavigator({
     FindPlace: FindPlaceScreen,
     SharePlace: SharePlaceScreen
@@ -60,6 +62,7 @@ const App = createAppContainer(createSwitchNavigator(
     AuthLoading: AuthLoadingScreen,
     App: AppStack,
     Auth: AuthStack,
+    Find: FindPlaceStack
   },
   {
     initialRouteName: 'AuthLoading',
