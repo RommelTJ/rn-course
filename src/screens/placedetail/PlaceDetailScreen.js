@@ -1,10 +1,14 @@
 import React from 'react';
-import { Button, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, Image, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { connect } from 'react-redux';
 
 const placeDetailScreen = (props) => {
   return (
     <View style={styles.container}>
+      <View>
+        <Image source={props.places[0].image} style={styles.placeImage} />
+      </View>
       <View>
         <TouchableOpacity onPress={props.onItemDeleted}>
           <View style={styles.deleteButton}>
@@ -14,6 +18,12 @@ const placeDetailScreen = (props) => {
       </View>
     </View>
   )
+};
+
+const mapStateToProps = state => {
+  return {
+    places: state.places.places
+  };
 };
 
 const styles = StyleSheet.create({
@@ -35,4 +45,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default placeDetailScreen;
+export default connect(mapStateToProps)(placeDetailScreen);

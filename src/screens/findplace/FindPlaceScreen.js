@@ -13,10 +13,14 @@ class FindPlaceScreen extends Component {
     this.props.navigation.navigate('Auth');
   };
 
+  itemSelectedHandler = (key) => {
+    this.props.navigation.navigate('PlaceDetail');
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <PlaceList places={this.props.places} />
+        <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />
       </View>
     );
   }
