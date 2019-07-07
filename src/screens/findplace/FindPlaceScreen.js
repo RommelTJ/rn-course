@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {AsyncStorage, View, Text, StyleSheet} from 'react-native';
 import { connect } from 'react-redux';
+import {createStackNavigator} from 'react-navigation';
 import PlaceList from '../../components/placelist/PlaceList';
+import PlaceDetailScreen from '../../screens/placedetail/PlaceDetailScreen';
 
 class FindPlaceScreen extends Component {
   static navigationOptions = {
-    title: 'Find a Place!',
+    title: 'Find a Place',
   };
 
   _signOutAsync = async () => {
@@ -14,7 +16,7 @@ class FindPlaceScreen extends Component {
   };
 
   itemSelectedHandler = (key) => {
-    this.props.navigation.navigate('PlaceDetail');
+    this.props.navigation.navigate('PlaceDetailScreen');
   };
 
   render() {
@@ -35,14 +37,13 @@ const mapStateToProps = state => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingBottom: 10,
+    padding: 22,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start'
   }
 });
 
-export default connect(mapStateToProps)(FindPlaceScreen);
+const ConnectedFindPlaceScreen = connect(mapStateToProps)(FindPlaceScreen);
+
+export default createStackNavigator({ConnectedFindPlaceScreen, PlaceDetailScreen});

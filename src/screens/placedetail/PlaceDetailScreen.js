@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 
@@ -28,8 +28,7 @@ const mapStateToProps = state => {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 22,
-    marginTop: 64
+    margin: 22
   },
   placeImage: {
     width: "100%",
