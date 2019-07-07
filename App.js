@@ -50,8 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddPlace: (name) => dispatch(addPlace(name)),
-    onDeletePlace: () => dispatch(deletePlace())
+    onAddPlace: (name) => dispatch(addPlace(name))
   };
 };
 
