@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
+import { deletePlace } from "../../store/actions/index";
 
 const placeDetailScreen = (props) => {
   const { navigation } = props;
@@ -27,6 +28,12 @@ const placeDetailScreen = (props) => {
 const mapStateToProps = state => {
   return {
     places: state.places.places
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onDeletePlace: (key) => dispatch(deletePlace(key))
   };
 };
 
