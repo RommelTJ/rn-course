@@ -1,13 +1,17 @@
 import React from 'react';
-import { Image, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 
 const placeDetailScreen = (props) => {
+  const { navigation } = props;
+  const selectedPlace = navigation.getParam('selectedPlace');
+
   return (
     <View style={styles.container}>
       <View>
-        <Image source={props.places[0].image} style={styles.placeImage} />
+        <Image source={selectedPlace.image} style={styles.placeImage} />
+        <Text style={styles.placeName}>{selectedPlace.name}</Text>
       </View>
       <View>
         <TouchableOpacity onPress={props.onItemDeleted}>

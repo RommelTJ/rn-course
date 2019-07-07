@@ -16,7 +16,9 @@ class FindPlaceScreen extends Component {
   };
 
   itemSelectedHandler = (key) => {
-    this.props.navigation.navigate('PlaceDetailScreen');
+    this.props.navigation.navigate('PlaceDetailScreen', {
+      selectedPlace: this.props.places.find(place => place.key === key)
+    });
   };
 
   render() {
