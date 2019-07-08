@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider, connect } from 'react-redux';
-import { addPlace, deletePlace } from './src/store/actions/index';
+import { addPlace } from './src/store/actions/index';
 import configureStore from "./src/store/configureStore";
 import { Ionicons } from '@expo/vector-icons';
 import {createBottomTabNavigator, createSwitchNavigator, createStackNavigator, createAppContainer} from 'react-navigation';
