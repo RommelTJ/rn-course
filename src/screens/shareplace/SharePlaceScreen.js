@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {AsyncStorage, StyleSheet, View} from 'react-native';
+import {AsyncStorage, StyleSheet, TouchableOpacity, View} from 'react-native';
 import PlaceInput from '../../components/placeinput/PlaceInput';
 import {addPlace} from "../../store/actions";
+import Styles from "../../styles";
+import { Ionicons } from '@expo/vector-icons';
+import {createStackNavigator} from "react-navigation";
 
 class SharePlaceScreen extends Component {
-  static navigationOptions = {
-    title: 'Share a Place!',
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Share a Place',
+    headerLeft: (
+      <TouchableOpacity
+        style={Styles.headerButton}
+        onPress={() => navigation.openDrawer()}>
+        <Ionicons name="md-menu" size={25} />
+      </TouchableOpacity>
+    )
+  });
 
   placeAddedHandler = (placeName) => {
     this.props.onAddPlace(placeName);
@@ -36,14 +46,13 @@ const mapDispatchToProps = dispatch => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingBottom: 10,
+    padding: 22,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start'
   }
 });
 
-export default connect(null, mapDispatchToProps)(SharePlaceScreen);
+const ConnectedSharePlaceScreen = connect(null, mapDispatchToProps)(SharePlaceScreen);
+
+export default createStackNavigator({ConnectedSharePlaceScreen});
