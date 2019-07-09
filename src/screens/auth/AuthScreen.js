@@ -29,7 +29,8 @@ class AuthScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     borderColor: "red",
-    borderWidth: 1
+    borderWidth: 1,
+    flex: 1
   }
 });
 
