@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, Button, Text, TextInput, View } from 'react-native';
+import { AsyncStorage, Button, Text, TextInput, View, StyleSheet } from 'react-native';
 
 class AuthScreen extends Component {
 
@@ -14,7 +14,7 @@ class AuthScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text>Please Log In</Text>
         <Button title="Switch to Login" />
         <TextInput placeholder="Your Email Address" />
@@ -25,5 +25,12 @@ class AuthScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    borderColor: "red",
+    borderWidth: 1
+  }
+});
 
 export default AuthScreen;
