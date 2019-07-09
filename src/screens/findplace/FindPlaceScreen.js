@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
-import {AsyncStorage, View, Text, StyleSheet} from 'react-native';
+import {AsyncStorage, View, TouchableOpacity, StyleSheet} from 'react-native';
 import { connect } from 'react-redux';
-import {createStackNavigator} from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
 import PlaceList from '../../components/placelist/PlaceList';
 import PlaceDetailScreen from '../../screens/placedetail/PlaceDetailScreen';
+import Styles from '../../styles';
+import {createStackNavigator} from 'react-navigation';
 
 class FindPlaceScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: 'Find a Place',
-  };
+    headerLeft: (
+      <TouchableOpacity
+        style={Styles.headerButton}
+        onPress={() => navigation.openDrawer()}>
+        <Ionicons name="md-menu" size={25} />
+      </TouchableOpacity>
+    )
+  });
 
   _signOutAsync = async () => {
     await AsyncStorage.clear();
