@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AsyncStorage, Button, Text, TextInput, View, StyleSheet } from 'react-native';
+import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
 
 class AuthScreen extends Component {
 
@@ -18,9 +19,9 @@ class AuthScreen extends Component {
         <Text>Please Log In</Text>
         <View style={styles.inputContainer}>
           <Button title="Switch to Login" />
-          <TextInput placeholder="Your Email Address" style={styles.input} underlineColorAndroid="transparent" />
-          <TextInput placeholder="Password" style={styles.input} underlineColorAndroid="transparent" />
-          <TextInput placeholder="Confirm Password" style={styles.input} underlineColorAndroid="transparent" />
+          <DefaultInput placeholder="Your Email Address" />
+          <DefaultInput placeholder="Password" />
+          <DefaultInput placeholder="Confirm Password" />
         </View>
         <Button title="Submit" onPress={this._signInAsync} />
       </View>
@@ -36,13 +37,6 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: "80%"
-  },
-  input: {
-    width: "100%",
-    borderWidth: 1,
-    borderColor: "#eee",
-    padding: 5,
-    margin: 8
   }
 });
 
