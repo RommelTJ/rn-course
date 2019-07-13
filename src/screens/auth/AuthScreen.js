@@ -19,9 +19,9 @@ class AuthScreen extends Component {
         <Text>Please Log In</Text>
         <View style={styles.inputContainer}>
           <Button title="Switch to Login" />
-          <DefaultInput placeholder="Your Email Address" />
-          <DefaultInput placeholder="Password" />
-          <DefaultInput placeholder="Confirm Password" />
+          <DefaultInput placeholder="Your Email Address" style={styles.input} />
+          <DefaultInput placeholder="Password" style={styles.input} />
+          <DefaultInput placeholder="Confirm Password" style={styles.input} />
         </View>
         <Button title="Submit" onPress={this._signInAsync} />
       </View>
@@ -37,6 +37,10 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: "80%"
+  },
+  input: {
+    backgroundColor: "#eee",
+    borderColor: "#bbb"
   }
 });
 
