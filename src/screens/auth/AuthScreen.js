@@ -20,7 +20,7 @@ class AuthScreen extends Component {
         <View style={styles.inputContainer}>
           <Button title="Switch to Login" />
           <DefaultInput placeholder="Your Email Address" style={styles.input} />
-          <DefaultInput placeholder="Password" style={[styles.input, {borderColor: "red"}]} />
+          <DefaultInput placeholder="Password" style={styles.input} />
           <DefaultInput placeholder="Confirm Password" style={styles.input} />
         </View>
         <Button title="Submit" onPress={this._signInAsync} />
