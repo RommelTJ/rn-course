@@ -16,7 +16,7 @@ class AuthScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Please Log In</Text>
+        <Text style={styles.textHeading}>Please Log In</Text>
         <View style={styles.inputContainer}>
           <Button title="Switch to Login" />
           <DefaultInput placeholder="Your Email Address" style={styles.input} />
@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     width: "80%"
+  },
+  textHeading: {
+    fontSize: 28
   },
   input: {
     backgroundColor: "#eee",
