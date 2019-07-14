@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
     width: "80%"
   },
   textHeading: {
-    fontSize: 28
+    fontSize: 28,
+    fontWeight: "bold"
   },
   input: {
     backgroundColor: "#eee",
