@@ -5,7 +5,7 @@ const headingText = (props) => {
   return (
     <Text
       {...props}
-      style={[styles.input, props.style]}
+      style={[styles.textHeading, props.style]}
     >
       {props.children}
     </Text>
@@ -13,12 +13,9 @@ const headingText = (props) => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    width: "100%",
-    borderWidth: 1,
-    borderColor: "#eee",
-    padding: 5,
-    margin: 8
+  textHeading: {
+    fontSize: 28,
+    fontWeight: "bold"
   }
 });
 
