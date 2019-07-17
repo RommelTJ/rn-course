@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { AsyncStorage, Button, View, StyleSheet } from 'react-native';
+import { AsyncStorage, Button, View, StyleSheet, ImageBackground } from 'react-native';
 import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
 import MainText from '../../components/UI/maintext/MainText';
+import backgroundImage from '../../assets/background.png';
 
 class AuthScreen extends Component {
 
@@ -18,16 +19,18 @@ class AuthScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MainText>
-          <HeadingText>Please Log In</HeadingText>
-        </MainText>
-        <View style={styles.inputContainer}>
-          <Button title="Switch to Login" />
-          <DefaultInput placeholder="Your Email Address" style={styles.input} />
-          <DefaultInput placeholder="Password" style={styles.input} />
-          <DefaultInput placeholder="Confirm Password" style={styles.input} />
-        </View>
-        <Button title="Submit" onPress={this._signInAsync} />
+        <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
+          <MainText>
+            <HeadingText>Please Log In</HeadingText>
+          </MainText>
+          <View style={styles.inputContainer}>
+            <Button title="Switch to Login" />
+            <DefaultInput placeholder="Your Email Address" style={styles.input} />
+            <DefaultInput placeholder="Password" style={styles.input} />
+            <DefaultInput placeholder="Confirm Password" style={styles.input} />
+          </View>
+          <Button title="Submit" onPress={this._signInAsync} />
+        </ImageBackground>
       </View>
     );
   }
@@ -45,6 +48,9 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#eee",
     borderColor: "#bbb"
+  },
+  backgroundImage: {
+    width: "100%"
   }
 });
 
