@@ -25,12 +25,12 @@ class AuthScreen extends Component {
             <HeadingText>Please Log In</HeadingText>
           </MainText>
           <View style={styles.inputContainer}>
-            <ButtonWithBackground color="blue">Switch to Login</ButtonWithBackground>
+            <ButtonWithBackground color="#29aaf4">Switch to Login</ButtonWithBackground>
             <DefaultInput placeholder="Your Email Address" style={styles.input} />
             <DefaultInput placeholder="Password" style={styles.input} />
             <DefaultInput placeholder="Confirm Password" style={styles.input} />
           </View>
-          <ButtonWithBackground onPress={this._signInAsync} color="blue">Submit</ButtonWithBackground>
+          <ButtonWithBackground onPress={this._signInAsync} color="#29aaf4">Submit</ButtonWithBackground>
         </View>
       </ImageBackground>
     );
