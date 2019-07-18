@@ -25,7 +25,7 @@ class AuthScreen extends Component {
             <HeadingText>Please Log In</HeadingText>
           </MainText>
           <View style={styles.inputContainer}>
-            <ButtonWithBackground color="#29aaf4">Switch to Login</ButtonWithBackground>
+            <ButtonWithBackground onPress={() => alert("Hello")} color="#29aaf4">Switch to Login</ButtonWithBackground>
             <DefaultInput placeholder="Your Email Address" style={styles.input} />
             <DefaultInput placeholder="Password" style={styles.input} />
             <DefaultInput placeholder="Confirm Password" style={styles.input} />
