@@ -5,7 +5,7 @@ const buttonWithBackground = (props) => {
   return (
     <TouchableHighlight onPress={props.onPress}>
       <View style={[styles.button, {backgroundColor: props.color}]}>
-        <Text>{props.children}</Text>
+        <Text style={styles.buttonText}>{props.children}</Text>
       </View>
     </TouchableHighlight>
   );
@@ -14,7 +14,13 @@ const buttonWithBackground = (props) => {
 const styles = StyleSheet.create({
   button: {
     padding: 10,
-    margin: 5
+    margin: 5,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "black"
+  },
+  buttonText: {
+    textAlign: "center"
   }
 });
 
