@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {AsyncStorage, StyleSheet, TouchableOpacity, View} from 'react-native';
-import PlaceInput from '../../components/placeinput/PlaceInput';
+import {AsyncStorage, StyleSheet, TouchableOpacity, View, Text, TextInput, Button} from 'react-native';
 import {addPlace} from "../../store/actions";
 import Styles from "../../styles";
 import { Ionicons } from '@expo/vector-icons';
@@ -31,7 +30,20 @@ class SharePlaceScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <PlaceInput onPlaceAdded={this.placeAddedHandler} />
+        <Text>Share a place with us!</Text>
+
+        <View>
+          <Text>Image Preview!</Text>
+        </View>
+        <Button title="Pick image" />
+
+        <View>
+          <Text>Map</Text>
+        </View>
+        <Button title="Locate me" />
+
+        <TextInput placeholder="Place name" />
+        <Button title="Share the place!" />
       </View>
     );
   }
