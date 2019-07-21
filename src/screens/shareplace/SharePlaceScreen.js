@@ -32,12 +32,12 @@ class SharePlaceScreen extends Component {
       <View style={styles.container}>
         <Text>Share a place with us!</Text>
 
-        <View>
+        <View style={styles.placeholder} >
           <Text>Image Preview!</Text>
         </View>
         <Button title="Pick image" />
 
-        <View>
+        <View style={styles.placeholder} >
           <Text>Map</Text>
         </View>
         <Button title="Locate me" />
@@ -62,6 +62,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start'
+  },
+  placeholder: {
+    borderWidth: 1,
+    borderColor: "black",
+    backgroundColor: "#eee",
+    width: "80%",
+    height: 150
   }
 });
 
