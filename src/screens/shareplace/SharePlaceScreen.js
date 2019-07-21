@@ -5,6 +5,7 @@ import {addPlace} from "../../store/actions";
 import Styles from "../../styles";
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from "react-navigation";
+import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
 
 class SharePlaceScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -44,7 +45,7 @@ class SharePlaceScreen extends Component {
           </View>
           <Button title="Locate me" />
 
-          <TextInput placeholder="Place name" />
+          <DefaultInput placeholder="Place name" />
           <Button title="Share the place!" />
         </View>
       </ScrollView>
