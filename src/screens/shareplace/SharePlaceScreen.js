@@ -29,21 +29,24 @@ class SharePlaceScreen extends Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text>Share a place with us!</Text>
+      <ScrollView>
+        {/* Workaround for Android Scrolling */}
+        <View style={styles.container}>
+          <Text>Share a place with us!</Text>
 
-        <View style={styles.placeholder} >
-          <Text>Image Preview!</Text>
+          <View style={styles.placeholder} >
+            <Text>Image Preview!</Text>
+          </View>
+          <Button title="Pick image" />
+
+          <View style={styles.placeholder} >
+            <Text>Map</Text>
+          </View>
+          <Button title="Locate me" />
+
+          <TextInput placeholder="Place name" />
+          <Button title="Share the place!" />
         </View>
-        <Button title="Pick image" />
-
-        <View style={styles.placeholder} >
-          <Text>Map</Text>
-        </View>
-        <Button title="Locate me" />
-
-        <TextInput placeholder="Place name" />
-        <Button title="Share the place!" />
       </ScrollView>
     );
   }
