@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {AsyncStorage, StyleSheet, TouchableOpacity, View, Text, TextInput, Button} from 'react-native';
+import { AsyncStorage, StyleSheet, TouchableOpacity, View, Text, TextInput, Button, ScrollView } from 'react-native';
 import {addPlace} from "../../store/actions";
 import Styles from "../../styles";
 import { Ionicons } from '@expo/vector-icons';
@@ -29,7 +29,7 @@ class SharePlaceScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text>Share a place with us!</Text>
 
         <View style={styles.placeholder} >
@@ -44,7 +44,7 @@ class SharePlaceScreen extends Component {
 
         <TextInput placeholder="Place name" />
         <Button title="Share the place!" />
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -59,9 +59,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 22,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start'
+    backgroundColor: '#fff'
   },
   placeholder: {
     borderWidth: 1,
