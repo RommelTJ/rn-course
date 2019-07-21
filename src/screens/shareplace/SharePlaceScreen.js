@@ -29,7 +29,7 @@ class SharePlaceScreen extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         <Text>Share a place with us!</Text>
 
         <View style={styles.placeholder} >
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 22,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    alignItems: "center"
   },
   placeholder: {
     borderWidth: 1,
