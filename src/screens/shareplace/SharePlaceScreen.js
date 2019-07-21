@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AsyncStorage, StyleSheet, TouchableOpacity, View, Text, TextInput, Button, ScrollView } from 'react-native';
+import { AsyncStorage, StyleSheet, TouchableOpacity, View, Text, Image, Button, ScrollView } from 'react-native';
 import {addPlace} from "../../store/actions";
 import Styles from "../../styles";
 import { Ionicons } from '@expo/vector-icons';
@@ -8,6 +8,7 @@ import {createStackNavigator} from "react-navigation";
 import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
 import MainText from '../../components/UI/maintext/MainText';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
+import imagePlaceholder from '../../assets/SanDiego.jpg';
 
 class SharePlaceScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -40,7 +41,7 @@ class SharePlaceScreen extends Component {
           </MainText>
 
           <View style={styles.placeholder} >
-            <Text>Image Preview!</Text>
+            <Image source={imagePlaceholder} style={styles.previewImage}/>
           </View>
           <View style={styles.button}>
             <Button title="Pick image" />
@@ -85,6 +86,10 @@ const styles = StyleSheet.create({
   },
   button: {
     margin: 8
+  },
+  previewImage: {
+    width: "100%",
+    height: "100%"
   }
 });
 
