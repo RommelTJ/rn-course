@@ -6,6 +6,8 @@ import Styles from "../../styles";
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from "react-navigation";
 import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
+import MainText from '../../components/UI/maintext/MainText';
+import HeadingText from '../../components/UI/headingtext/HeadingText';
 
 class SharePlaceScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -33,7 +35,9 @@ class SharePlaceScreen extends Component {
       <ScrollView>
         {/* Workaround for Android Scrolling */}
         <View style={styles.container}>
-          <Text>Share a place with us!</Text>
+          <MainText>
+            <HeadingText>Share a place with us!</HeadingText>
+          </MainText>
 
           <View style={styles.placeholder} >
             <Text>Image Preview!</Text>
