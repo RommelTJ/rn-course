@@ -5,7 +5,7 @@ import {addPlace} from "../../store/actions";
 import Styles from "../../styles";
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from "react-navigation";
-import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
+import PlaceInput from '../../components/placeinput/PlaceInput';
 import MainText from '../../components/UI/maintext/MainText';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
 import imagePlaceholder from '../../assets/SanDiego.jpg';
@@ -54,7 +54,7 @@ class SharePlaceScreen extends Component {
             <Button title="Locate me" />
           </View>
 
-          <DefaultInput placeholder="Place name" />
+          <PlaceInput />
           <View style={styles.button} >
             <Button title="Share the place!" />
           </View>
