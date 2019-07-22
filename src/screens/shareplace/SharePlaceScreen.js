@@ -7,9 +7,9 @@ import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from "react-navigation";
 import PlaceInput from '../../components/placeinput/PlaceInput';
 import PickImage from '../../components/pickimage/PickImage';
+import PickLocation from '../../components/picklocation/PickLocation';
 import MainText from '../../components/UI/maintext/MainText';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
-import imagePlaceholder from '../../assets/SanDiego.jpg';
 
 class SharePlaceScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -43,12 +43,7 @@ class SharePlaceScreen extends Component {
 
           <PickImage />
 
-          <View style={styles.placeholder} >
-            <Text>Map</Text>
-          </View>
-          <View style={styles.button} >
-            <Button title="Locate me" />
-          </View>
+          <PickLocation />
 
           <PlaceInput />
           <View style={styles.button} >
@@ -73,19 +68,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: "center"
   },
-  placeholder: {
-    borderWidth: 1,
-    borderColor: "black",
-    backgroundColor: "#eee",
-    width: "80%",
-    height: 150
-  },
   button: {
     margin: 8
-  },
-  previewImage: {
-    width: "100%",
-    height: "100%"
   }
 });
 
