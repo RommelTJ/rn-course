@@ -6,6 +6,7 @@ import Styles from "../../styles";
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from "react-navigation";
 import PlaceInput from '../../components/placeinput/PlaceInput';
+import PickImage from '../../components/pickimage/PickImage';
 import MainText from '../../components/UI/maintext/MainText';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
 import imagePlaceholder from '../../assets/SanDiego.jpg';
@@ -40,12 +41,7 @@ class SharePlaceScreen extends Component {
             <HeadingText>Share a place with us!</HeadingText>
           </MainText>
 
-          <View style={styles.placeholder} >
-            <Image source={imagePlaceholder} style={styles.previewImage}/>
-          </View>
-          <View style={styles.button}>
-            <Button title="Pick image" />
-          </View>
+          <PickImage />
 
           <View style={styles.placeholder} >
             <Text>Map</Text>
