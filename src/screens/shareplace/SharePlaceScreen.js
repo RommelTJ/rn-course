@@ -23,6 +23,10 @@ class SharePlaceScreen extends Component {
     )
   });
 
+  state = {
+    placeName: ""
+  };
+
   placeAddedHandler = (placeName) => {
     this.props.onAddPlace(placeName);
   };
@@ -30,6 +34,10 @@ class SharePlaceScreen extends Component {
   _signOutAsync = async () => {
     await AsyncStorage.clear();
     this.props.navigation.navigate('Auth');
+  };
+
+  placeNameChangedHandler = (val) => {
+    this.setState({placeName: val});
   };
 
   render() {
@@ -45,7 +53,8 @@ class SharePlaceScreen extends Component {
 
           <PickLocation />
 
-          <PlaceInput />
+          <PlaceInput placeName={this.state.placeName} onChangeText={this.placeNameChangedHandler} />
+
           <View style={styles.button} >
             <Button title="Share the place!" />
           </View>
