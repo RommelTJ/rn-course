@@ -6,8 +6,8 @@ const placeInput = (props) => {
   return (
     <DefaultInput
       placeholder="Place name"
-      value={this.props.placeName}
-      onChangeText={this.props.onChangeText}
+      value={props.placeName}
+      onChangeText={props.onChangeText}
     />
   );
 
