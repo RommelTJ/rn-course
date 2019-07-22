@@ -27,8 +27,8 @@ class SharePlaceScreen extends Component {
     placeName: ""
   };
 
-  placeAddedHandler = (placeName) => {
-    if (this.state.placeName.trim() !== "") this.props.onAddPlace(placeName);
+  placeAddedHandler = () => {
+    if (this.state.placeName.trim() !== "") this.props.onAddPlace(this.state.placeName);
   };
 
   _signOutAsync = async () => {
