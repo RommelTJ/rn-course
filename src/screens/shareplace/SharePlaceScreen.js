@@ -28,7 +28,7 @@ class SharePlaceScreen extends Component {
   };
 
   placeAddedHandler = (placeName) => {
-    this.props.onAddPlace(placeName);
+    if (this.state.placeName.trim() !== "") this.props.onAddPlace(placeName);
   };
 
   _signOutAsync = async () => {
@@ -56,7 +56,7 @@ class SharePlaceScreen extends Component {
           <PlaceInput placeName={this.state.placeName} onChangeText={this.placeNameChangedHandler} />
 
           <View style={styles.button} >
-            <Button title="Share the place!" />
+            <Button title="Share the place!" onPress={this.placeAddedHandler}/>
           </View>
         </View>
       </ScrollView>
