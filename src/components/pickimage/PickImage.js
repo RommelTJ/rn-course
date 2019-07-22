@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { View, Image, Button, StyleSheet } from 'react-native';
 import imagePlaceholder from "../../assets/SanDiego.jpg";
 
@@ -6,14 +6,14 @@ class PickImage extends Component {
 
   render() {
     return (
-      <View>
+      <Fragment>
         <View style={styles.placeholder} >
           <Image source={imagePlaceholder} style={styles.previewImage}/>
         </View>
         <View style={styles.button}>
           <Button title="Pick image" />
         </View>
-      </View>
+      </Fragment>
     );
   }
 

@@ -1,17 +1,17 @@
 import {Button, StyleSheet, Text, View} from "react-native";
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 
 class PickLocation extends Component {
   render() {
     return (
-      <View>
+      <Fragment>
         <View style={styles.placeholder} >
           <Text>Map</Text>
         </View>
         <View style={styles.button} >
           <Button title="Locate me" />
         </View>
-      </View>
+      </Fragment>
     );
   }
 }
