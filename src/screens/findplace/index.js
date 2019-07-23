@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import FindPlaceScreen from './FindPlaceScreen';
 import SharePlaceScreen from "../../screens/shareplace/SharePlaceScreen";
 import FindPlaceIconWithBadge from "../../components/icons/FindPlaceIconWithBadge";
+import { Platform } from 'react-native';
 
 const FindPlaceTabs = createBottomTabNavigator({
     FindPlace: {
@@ -20,7 +21,7 @@ const FindPlaceTabs = createBottomTabNavigator({
         let IconComponent = Ionicons;
         let iconName;
         if (routeName === 'FindPlace') {
-          iconName = `md-map`;
+          iconName = Platform.OS === 'android' ? "md-map" : "ios-map";
           // Sometimes we want to add badges to some icons.
           // You can check the implementation below.
           IconComponent = FindPlaceIconWithBadge;
