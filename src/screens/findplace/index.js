@@ -26,7 +26,7 @@ const FindPlaceTabs = createBottomTabNavigator({
           // You can check the implementation below.
           IconComponent = FindPlaceIconWithBadge;
         } else if (routeName === 'SharePlace') {
-          iconName = `ios-options`;
+          iconName = Platform.OS === 'android' ? "md-share-alt" : "ios-share-alt";
         }
 
         // You can return any component that you like here!
