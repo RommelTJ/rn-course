@@ -20,7 +20,7 @@ const FindPlaceTabs = createBottomTabNavigator({
         let IconComponent = Ionicons;
         let iconName;
         if (routeName === 'FindPlace') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+          iconName = `md-map`;
           // Sometimes we want to add badges to some icons.
           // You can check the implementation below.
           IconComponent = FindPlaceIconWithBadge;
