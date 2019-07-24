@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, Button, View, StyleSheet, ImageBackground } from 'react-native';
+import { AsyncStorage, View, StyleSheet, ImageBackground, Dimensions} from 'react-native';
 import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
 import MainText from '../../components/UI/maintext/MainText';
@@ -18,12 +18,16 @@ class AuthScreen extends Component {
   };
 
   render() {
+    let headingText = undefined;
+
+    if (Dimensions.get('window').height > 500) {
+      headingText = <MainText><HeadingText>Please Log In</HeadingText></MainText>;
+    }
+
     return (
       <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
         <View style={styles.container}>
-          <MainText>
-            <HeadingText>Please Log In</HeadingText>
-          </MainText>
+          {headingText}
           <View style={styles.inputContainer}>
             <ButtonWithBackground onPress={() => alert("Hello")} color="#29aaf4">Switch to Login</ButtonWithBackground>
             <DefaultInput placeholder="Your Email Address" style={styles.input} />
