@@ -12,6 +12,10 @@ class AuthScreen extends Component {
     title: 'Please sign in',
   };
 
+  constructor(props) {
+    super(props);
+  }
+
   _signInAsync = async () => {
     await AsyncStorage.setItem('userToken', 'dummyToken', null);
     this.props.navigation.navigate('App');
