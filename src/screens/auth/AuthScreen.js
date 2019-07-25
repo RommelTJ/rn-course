@@ -14,6 +14,9 @@ class AuthScreen extends Component {
 
   constructor(props) {
     super(props);
+    Dimensions.addEventListener("change", (dimensions) => {
+      console.log("dimensions", dimensions);
+    });
   }
 
   _signInAsync = async () => {
