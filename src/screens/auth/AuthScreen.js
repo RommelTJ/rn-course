@@ -5,6 +5,7 @@ import HeadingText from '../../components/UI/headingtext/HeadingText';
 import MainText from '../../components/UI/maintext/MainText';
 import backgroundImage from '../../assets/background.png';
 import ButtonWithBackground from '../../components/UI/button/ButtonWithBackground';
+import { ScreenOrientation } from 'expo';
 
 class AuthScreen extends Component {
 
@@ -13,7 +14,8 @@ class AuthScreen extends Component {
       passwordContainerDirection: "column",
       passwordContainerJustifyContent: "flex-start",
       passwordWrapperWidth: "100%"
-    }
+    },
+    screenOrientation: ScreenOrientation.OrientationLock.PORTRAIT_UP
   };
 
   static navigationOptions = {
@@ -30,8 +32,21 @@ class AuthScreen extends Component {
           passwordContainerJustifyContent: "space-between",
           passwordWrapperWidth: "45%"
         }
-      })
+      });
+      this.toggleScreenOrientation();
     });
+  }
+
+  async changeScreenOrientation() {
+    await ScreenOrientation.lockAsync(this.state.screenOrientation);
+  }
+
+  toggleScreenOrientation() {
+    if (this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP) {
+      this.setState({screenOrientation: ScreenOrientation.OrientationLock.LANDSCAPE_LEFT})
+    } else {
+      this.setState({screenOrientation: ScreenOrientation.OrientationLock.PORTRAIT_UP})
+    }
   }
 
   _signInAsync = async () => {
@@ -40,8 +55,9 @@ class AuthScreen extends Component {
   };
 
   render() {
-    let headingText = undefined;
+    const _ = this.changeScreenOrientation();
 
+    let headingText = undefined;
     if (Dimensions.get('window').height > 500) {
       headingText = <MainText><HeadingText>Please Log In</HeadingText></MainText>;
     }
