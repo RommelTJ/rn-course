@@ -23,7 +23,14 @@ class AuthScreen extends Component {
   constructor(props) {
     super(props);
     Dimensions.addEventListener("change", (dimensions) => {
-      console.log("dimensions", dimensions);
+      // Changing the styles when there's a dimension event
+      this.setState({
+        styles: {
+          passwordContainerDirection: "row",
+          passwordContainerJustifyContent: "space-between",
+          passwordWrapperWidth: "45%"
+        }
+      })
     });
   }
 
