@@ -28,9 +28,9 @@ class AuthScreen extends Component {
       // Changing the styles when there's a dimension event
       this.setState({
         styles: {
-          passwordContainerDirection: "row",
-          passwordContainerJustifyContent: "space-between",
-          passwordWrapperWidth: "45%"
+          passwordContainerDirection: Dimensions.get("window").width > 500 ? "column" : "row",
+          passwordContainerJustifyContent: Dimensions.get("window").width > 500 ? "flex-start" : "space-between",
+          passwordWrapperWidth: Dimensions.get("window").width > 500 ? "100%" : "45%"
         }
       });
       this.toggleScreenOrientation();
@@ -58,7 +58,7 @@ class AuthScreen extends Component {
     const _ = this.changeScreenOrientation();
 
     let headingText = undefined;
-    if (Dimensions.get('window').height > 500) {
+    if (Dimensions.get('window').width > 500) {
       headingText = <MainText><HeadingText>Please Log In</HeadingText></MainText>;
     }
 
