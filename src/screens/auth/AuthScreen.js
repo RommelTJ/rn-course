@@ -8,6 +8,14 @@ import ButtonWithBackground from '../../components/UI/button/ButtonWithBackgroun
 
 class AuthScreen extends Component {
 
+  state = {
+    styles: {
+      passwordContainerDirection: "column",
+      passwordContainerJustifyContent: "flex-start",
+      passwordWrapperWidth: "100%"
+    }
+  };
+
   static navigationOptions = {
     title: 'Please sign in',
   };
@@ -38,11 +46,24 @@ class AuthScreen extends Component {
           <View style={styles.inputContainer}>
             <ButtonWithBackground onPress={() => alert("Hello")} color="#29aaf4">Switch to Login</ButtonWithBackground>
             <DefaultInput placeholder="Your Email Address" style={styles.input} />
-            <View style={styles.passwordContainer}>
-              <View style={styles.passwordWrapper}>
+            <View style={
+              {
+                flexDirection: this.state.styles.passwordContainerDirection,
+                justifyContent: this.state.styles.passwordContainerJustifyContent
+              }
+            }>
+              <View style={
+                {
+                  width: this.state.styles.passwordWrapperWidth
+                }
+              }>
                 <DefaultInput placeholder="Password" style={styles.input} />
               </View>
-              <View style={styles.passwordWrapper}>
+              <View style={
+                {
+                  width: this.state.styles.passwordWrapperWidth
+                }
+              }>
               <DefaultInput placeholder="Confirm Password" style={styles.input} />
               </View>
             </View>
