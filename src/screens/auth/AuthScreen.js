@@ -10,11 +10,6 @@ import { ScreenOrientation } from 'expo';
 class AuthScreen extends Component {
 
   state = {
-    styles: {
-      passwordContainerDirection: "column",
-      passwordContainerJustifyContent: "flex-start",
-      passwordWrapperWidth: "100%"
-    },
     screenOrientation: ScreenOrientation.OrientationLock.PORTRAIT_UP
   };
 
@@ -26,13 +21,6 @@ class AuthScreen extends Component {
     super(props);
     Dimensions.addEventListener("change", (dimensions) => {
       // Changing the styles when there's a dimension event
-      this.setState({
-        styles: {
-          passwordContainerDirection: Dimensions.get("window").width > 500 ? "column" : "row",
-          passwordContainerJustifyContent: Dimensions.get("window").width > 500 ? "flex-start" : "space-between",
-          passwordWrapperWidth: Dimensions.get("window").width > 500 ? "100%" : "45%"
-        }
-      });
       this.toggleScreenOrientation();
     });
   }
@@ -58,7 +46,7 @@ class AuthScreen extends Component {
     const _ = this.changeScreenOrientation();
 
     let headingText = undefined;
-    if (Dimensions.get('window').width > 500) {
+    if (this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP) {
       headingText = <MainText><HeadingText>Please Log In</HeadingText></MainText>;
     }
 
@@ -69,24 +57,11 @@ class AuthScreen extends Component {
           <View style={styles.inputContainer}>
             <ButtonWithBackground onPress={() => alert("Hello")} color="#29aaf4">Switch to Login</ButtonWithBackground>
             <DefaultInput placeholder="Your Email Address" style={styles.input} />
-            <View style={
-              {
-                flexDirection: this.state.styles.passwordContainerDirection,
-                justifyContent: this.state.styles.passwordContainerJustifyContent
-              }
-            }>
-              <View style={
-                {
-                  width: this.state.styles.passwordWrapperWidth
-                }
-              }>
+            <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
+              <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
                 <DefaultInput placeholder="Password" style={styles.input} />
               </View>
-              <View style={
-                {
-                  width: this.state.styles.passwordWrapperWidth
-                }
-              }>
+              <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
               <DefaultInput placeholder="Confirm Password" style={styles.input} />
               </View>
             </View>
@@ -114,6 +89,20 @@ const styles = StyleSheet.create({
   backgroundImage: {
     width: "100%",
     flex: 1
+  },
+  landscapePasswordContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  portraitPasswordContainer: {
+    flexDirection: "column",
+    justifyContent: "flex-start"
+  },
+  landscapePasswordWrapper: {
+    width: "45%"
+  },
+  portraitPasswordWrapper: {
+    width: "100%"
   }
 });
 
