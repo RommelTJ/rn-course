@@ -19,10 +19,11 @@ class AuthScreen extends Component {
 
   constructor(props) {
     super(props);
-    Dimensions.addEventListener("change", (dimensions) => {
-      // Changing the styles when there's a dimension event
-      this.toggleScreenOrientation();
-    });
+    Dimensions.addEventListener("change", this.toggleScreenOrientation);
+  }
+
+  componentWillUnmount() {
+    Dimensions.removeEventListener("change", this.toggleScreenOrientation)
   }
 
   async changeScreenOrientation() {
