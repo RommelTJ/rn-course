@@ -7,12 +7,8 @@ import FindPlaceIconWithBadge from "../../components/icons/FindPlaceIconWithBadg
 import { Platform } from 'react-native';
 
 const FindPlaceTabs = createBottomTabNavigator({
-    FindPlace: {
-      screen: FindPlaceScreen,
-    },
-    SharePlace: {
-      screen: SharePlaceScreen,
-    }
+    FindPlace: { screen: FindPlaceScreen },
+    SharePlace: { screen: SharePlaceScreen }
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -34,7 +30,7 @@ const FindPlaceTabs = createBottomTabNavigator({
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'tomato',
+      activeTintColor: 'orange',
       inactiveTintColor: 'gray',
     }
   }
