@@ -16,7 +16,8 @@ class FindPlaceScreen extends Component {
         onPress={() => navigation.openDrawer()}>
         <Ionicons name="md-menu" size={25} />
       </TouchableOpacity>
-    )
+    ),
+    headerTintColor: "orange"
   });
 
   _signOutAsync = async () => {
