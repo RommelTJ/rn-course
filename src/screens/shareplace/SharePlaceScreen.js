@@ -12,6 +12,7 @@ import MainText from '../../components/UI/maintext/MainText';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
 
 class SharePlaceScreen extends Component {
+
   static navigationOptions = ({ navigation }) => ({
     title: 'Share a Place',
     headerLeft: (
@@ -20,7 +21,8 @@ class SharePlaceScreen extends Component {
         onPress={() => navigation.openDrawer()}>
         <Ionicons name="md-menu" size={25} />
       </TouchableOpacity>
-    )
+    ),
+    headerTintColor: "orange"
   });
 
   state = {
