@@ -52,7 +52,7 @@ class FindPlaceScreen extends Component {
       content = <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />;
     }
 
-    return <View style={styles.container}>{content}</View>;
+    return <View style={this.state.placesLoaded ? null : styles.buttonContainer}>{content}</View>;
   }
 }
 
@@ -63,12 +63,12 @@ const mapStateToProps = state => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  buttonContainer: {
     flex: 1,
-    padding: 22,
-    backgroundColor: '#fff',
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    padding: 22,
+    backgroundColor: '#fff'
   },
   searchButton: {
     borderColor: "orange",
