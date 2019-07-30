@@ -34,12 +34,12 @@ class FindPlaceScreen extends Component {
   render() {
     let content = (
       <TouchableOpacity>
-        <View>
-          <Text>Find Places</Text>
+        <View style={styles.searchButton}>
+          <Text style={styles.searchButtonText}>Find Places</Text>
         </View>
       </TouchableOpacity>
     );
-    
+
     return (
       <View style={styles.container}>
         <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />
@@ -61,6 +61,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start'
+  },
+  searchButton: {
+    borderColor: "orange",
+    borderWidth: 3,
+    borderRadius: 50,
+    padding: 20
+  },
+  searchButtonText: {
+    color: "orange",
+    fontWeight: "bold",
+    fontSize: 26
   }
 });
 
