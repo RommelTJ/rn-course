@@ -34,20 +34,24 @@ class FindPlaceScreen extends Component {
     });
   };
 
+  placesSearchHandler = () => {
+    // Handle the animation, load new places, and switch placesLoaded to false.
+  };
+
   render() {
     let content = (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={this.placesSearchHandler}>
         <View style={styles.searchButton}>
           <Text style={styles.searchButtonText}>Find Places</Text>
         </View>
       </TouchableOpacity>
     );
 
-    return (
-      <View style={styles.container}>
-        <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />
-      </View>
-    );
+    if (this.state.placesLoaded) {
+      content = <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />;
+    }
+
+    return <View style={styles.container}>{content}</View>;
   }
 }
 
