@@ -34,8 +34,9 @@ class FindPlaceScreen extends Component {
     });
   };
 
+  // Handle the animation, load new places, and switch placesLoaded to false.
   placesSearchHandler = () => {
-    // Handle the animation, load new places, and switch placesLoaded to false.
+    this.setState({placesLoaded: true});
   };
 
   render() {
