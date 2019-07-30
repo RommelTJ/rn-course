@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AsyncStorage, View, TouchableOpacity, StyleSheet} from 'react-native';
+import {AsyncStorage, View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import { connect } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
 import PlaceList from '../../components/placelist/PlaceList';
@@ -32,6 +32,14 @@ class FindPlaceScreen extends Component {
   };
 
   render() {
+    let content = (
+      <TouchableOpacity>
+        <View>
+          <Text>Find Places</Text>
+        </View>
+      </TouchableOpacity>
+    );
+    
     return (
       <View style={styles.container}>
         <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />
