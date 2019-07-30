@@ -8,6 +8,9 @@ import Styles from '../../styles';
 import {createStackNavigator} from 'react-navigation';
 
 class FindPlaceScreen extends Component {
+
+  state = { placesLoaded: false };
+
   static navigationOptions = ({ navigation }) => ({
     title: 'Find a Place',
     headerLeft: (
