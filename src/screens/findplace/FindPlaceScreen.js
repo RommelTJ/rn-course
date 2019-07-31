@@ -48,7 +48,7 @@ class FindPlaceScreen extends Component {
 
   render() {
     let content = (
-      <Animated.View style={{opacity: this.state.removeAnim}}>
+      <Animated.View style={{opacity: this.state.removeAnim, transform: [{scale: this.state.removeAnim}]}}>
         <TouchableOpacity onPress={this.placesSearchHandler}>
           <View style={styles.searchButton}>
             <Text style={styles.searchButtonText}>Find Places</Text>
