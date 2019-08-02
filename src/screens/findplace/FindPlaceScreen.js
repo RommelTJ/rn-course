@@ -11,7 +11,8 @@ class FindPlaceScreen extends Component {
 
   state = {
     placesLoaded: false,
-    removeAnim: new Animated.Value(1)
+    removeAnim: new Animated.Value(1),
+    placesAnim: new Animated.Value(0)
   };
 
   static navigationOptions = ({ navigation }) => ({
@@ -37,9 +38,13 @@ class FindPlaceScreen extends Component {
     });
   };
 
-  // TODO: Handle animation that fades in a list.
+  // Handle animation that fades in a list.
   placesLoadedHandler = () => {
-
+    Animated.timing(this.state.placesAnim, {
+      toValue: 1,
+      duration: 500, // milliseconds
+      useNativeDriver: true
+    }).start();
   };
 
   // Handle the animation, load new places, and switch placesLoaded to false.
@@ -82,7 +87,17 @@ class FindPlaceScreen extends Component {
     );
 
     if (this.state.placesLoaded) {
-      content = <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />;
+      content = (
+        <Animated.View style={
+          {
+            opacity: this.state.placesAnim
+
+          }
+        }>
+          <PlaceList places={this.props.places} onItemSelected={this.itemSelectedHandler} />
+        </Animated.View>
+
+        );
     }
 
     return <View style={this.state.placesLoaded ? null : styles.buttonContainer}>{content}</View>;
