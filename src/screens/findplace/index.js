@@ -4,14 +4,11 @@ import { Ionicons } from '@expo/vector-icons';
 import FindPlaceScreen from './FindPlaceScreen';
 import SharePlaceScreen from "../../screens/shareplace/SharePlaceScreen";
 import FindPlaceIconWithBadge from "../../components/icons/FindPlaceIconWithBadge";
+import { Platform } from 'react-native';
 
 const FindPlaceTabs = createBottomTabNavigator({
-    FindPlace: {
-      screen: FindPlaceScreen,
-    },
-    SharePlace: {
-      screen: SharePlaceScreen,
-    }
+    FindPlace: { screen: FindPlaceScreen },
+    SharePlace: { screen: SharePlaceScreen }
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -20,12 +17,12 @@ const FindPlaceTabs = createBottomTabNavigator({
         let IconComponent = Ionicons;
         let iconName;
         if (routeName === 'FindPlace') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+          iconName = Platform.OS === 'android' ? "md-map" : "ios-map";
           // Sometimes we want to add badges to some icons.
           // You can check the implementation below.
           IconComponent = FindPlaceIconWithBadge;
         } else if (routeName === 'SharePlace') {
-          iconName = `ios-options`;
+          iconName = Platform.OS === 'android' ? "md-share-alt" : "ios-share";
         }
 
         // You can return any component that you like here!
@@ -33,7 +30,7 @@ const FindPlaceTabs = createBottomTabNavigator({
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'tomato',
+      activeTintColor: 'orange',
       inactiveTintColor: 'gray',
     }
   }

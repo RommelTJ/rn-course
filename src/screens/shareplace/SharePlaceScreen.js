@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {AsyncStorage, StyleSheet, TouchableOpacity, View} from 'react-native';
-import PlaceInput from '../../components/placeinput/PlaceInput';
+import { AsyncStorage, StyleSheet, TouchableOpacity, View, Text, Image, Button, ScrollView } from 'react-native';
 import {addPlace} from "../../store/actions";
 import Styles from "../../styles";
 import { Ionicons } from '@expo/vector-icons';
 import {createStackNavigator} from "react-navigation";
+import PlaceInput from '../../components/placeinput/PlaceInput';
+import PickImage from '../../components/pickimage/PickImage';
+import PickLocation from '../../components/picklocation/PickLocation';
+import MainText from '../../components/UI/maintext/MainText';
+import HeadingText from '../../components/UI/headingtext/HeadingText';
 
 class SharePlaceScreen extends Component {
+
   static navigationOptions = ({ navigation }) => ({
     title: 'Share a Place',
     headerLeft: (
@@ -16,11 +21,16 @@ class SharePlaceScreen extends Component {
         onPress={() => navigation.openDrawer()}>
         <Ionicons name="md-menu" size={25} />
       </TouchableOpacity>
-    )
+    ),
+    headerTintColor: "orange"
   });
 
-  placeAddedHandler = (placeName) => {
-    this.props.onAddPlace(placeName);
+  state = {
+    placeName: ""
+  };
+
+  placeAddedHandler = () => {
+    if (this.state.placeName.trim() !== "") this.props.onAddPlace(this.state.placeName);
   };
 
   _signOutAsync = async () => {
@@ -28,11 +38,30 @@ class SharePlaceScreen extends Component {
     this.props.navigation.navigate('Auth');
   };
 
+  placeNameChangedHandler = (val) => {
+    this.setState({placeName: val});
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <PlaceInput onPlaceAdded={this.placeAddedHandler} />
-      </View>
+      <ScrollView>
+        {/* Workaround for Android Scrolling */}
+        <View style={styles.container}>
+          <MainText>
+            <HeadingText>Share a place with us!</HeadingText>
+          </MainText>
+
+          <PickImage />
+
+          <PickLocation />
+
+          <PlaceInput placeName={this.state.placeName} onChangeText={this.placeNameChangedHandler} />
+
+          <View style={styles.button} >
+            <Button title="Share the place!" onPress={this.placeAddedHandler}/>
+          </View>
+        </View>
+      </ScrollView>
     );
   }
 }
@@ -48,8 +77,10 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 22,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start'
+    alignItems: "center"
+  },
+  button: {
+    margin: 8
   }
 });
 
