@@ -37,13 +37,23 @@ class FindPlaceScreen extends Component {
     });
   };
 
+  // TODO: Handle animation that fades in a list.
+  placesLoadedHandler = () => {
+
+  };
+
   // Handle the animation, load new places, and switch placesLoaded to false.
   placesSearchHandler = () => {
     Animated.timing(this.state.removeAnim, {
       toValue: 0,
       duration: 500, // milliseconds
       useNativeDriver: true
-    }).start();
+    }).start(() => {
+      this.setState({
+        placesLoaded: true
+      });
+      this.placesLoadedHandler();
+    });
   };
 
   render() {
