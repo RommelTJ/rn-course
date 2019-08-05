@@ -6,6 +6,7 @@ const validate = (value, rules) => {
         isValid = isValid && emailValidator(value);
         break;
       case 'minLength':
+        isValid = isValid && minLengthValidator(value, rules[rule]);
       case 'equalTo':
       default:
         isValid = false;
