@@ -4,15 +4,15 @@ const validate = (value, rules) => {
     switch (rule) {
       case 'isEmail':
         isValid = isValid && emailValidator(value);
-        break;
       case 'minLength':
         isValid = isValid && minLengthValidator(value, rules[rule]);
       case 'equalTo':
+        isValid = isValid && equalToValidator(value, rules[rule]);
       default:
-        isValid = false;
-        break;
+        isValid = true;
     }
   }
+  return isValid;
 };
 
 const emailValidator = (value) => {
