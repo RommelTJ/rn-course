@@ -95,6 +95,8 @@ class AuthScreen extends Component {
               <DefaultInput
                 placeholder="Confirm Password"
                 style={styles.input}
+                value={this.state.controls.confirmPassword.value}
+                onChangeText={(value) => this.updateInputState('confirmPassword', value)}
               />
               </View>
             </View>
