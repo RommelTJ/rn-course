@@ -87,6 +87,8 @@ class AuthScreen extends Component {
                 <DefaultInput
                   placeholder="Password"
                   style={styles.input}
+                  value={this.state.controls.password.value}
+                  onChangeText={(value) => this.updateInputState('password', value)}
                 />
               </View>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
