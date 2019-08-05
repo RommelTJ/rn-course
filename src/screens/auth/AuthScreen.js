@@ -108,6 +108,7 @@ class AuthScreen extends Component {
               style={styles.input}
               value={this.state.controls.email.value}
               onChangeText={(value) => this.updateInputState('email', value)}
+              valid={this.state.controls.email.valid}
             />
             <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
@@ -116,6 +117,7 @@ class AuthScreen extends Component {
                   style={styles.input}
                   value={this.state.controls.password.value}
                   onChangeText={(value) => this.updateInputState('password', value)}
+                  valid={this.state.controls.password.valid}
                 />
               </View>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
@@ -124,6 +126,7 @@ class AuthScreen extends Component {
                 style={styles.input}
                 value={this.state.controls.confirmPassword.value}
                 onChangeText={(value) => this.updateInputState('confirmPassword', value)}
+                valid={this.state.controls.confirmPassword.valid}
               />
               </View>
             </View>
