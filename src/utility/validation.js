@@ -15,7 +15,6 @@ const validate = (value, rules, connectedValue) => {
         isValid = true;
     }
   }
-  console.log("Valid?", isValid);
   return isValid;
 };
 
