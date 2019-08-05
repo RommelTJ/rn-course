@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: "center"
+  },
+  disabled: {
+    backgroundColor: '#eee',
+    color: '#aaa',
+    borderColor: '#aaa'
   }
 });
 
