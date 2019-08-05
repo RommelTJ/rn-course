@@ -48,6 +48,20 @@ class AuthScreen extends Component {
     this.props.navigation.navigate('App');
   };
 
+  updateInputState = (key, value) => {
+    this.setState(prevState => {
+      return {
+        controls: {
+          ...prevState.controls,
+          [key]: {
+            ...prevState.controls[key],
+            value: value
+          }
+        }
+      };
+    });
+  };
+
   render() {
     const _ = this.changeScreenOrientation();
 
@@ -66,6 +80,7 @@ class AuthScreen extends Component {
               placeholder="Your Email Address"
               style={styles.input}
               value={this.state.controls.email.value}
+              onChangeText={(value) => this.updateInputState('email', value)}
             />
             <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
