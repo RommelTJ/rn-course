@@ -82,7 +82,8 @@ class AuthScreen extends Component {
           [key]: {
             ...prevState.controls[key],
             value: value,
-            valid: validate(value, prevState.controls[key].validationRules, connectedValue)
+            valid: validate(value, prevState.controls[key].validationRules, connectedValue),
+            touched: true
           }
         }
       };
@@ -109,6 +110,7 @@ class AuthScreen extends Component {
               value={this.state.controls.email.value}
               onChangeText={(value) => this.updateInputState('email', value)}
               valid={this.state.controls.email.valid}
+              touched={this.state.controls.email.touched}
             />
             <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
@@ -118,6 +120,7 @@ class AuthScreen extends Component {
                   value={this.state.controls.password.value}
                   onChangeText={(value) => this.updateInputState('password', value)}
                   valid={this.state.controls.password.valid}
+                  touched={this.state.controls.email.touched}
                 />
               </View>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
@@ -127,6 +130,7 @@ class AuthScreen extends Component {
                 value={this.state.controls.confirmPassword.value}
                 onChangeText={(value) => this.updateInputState('confirmPassword', value)}
                 valid={this.state.controls.confirmPassword.valid}
+                touched={this.state.controls.email.touched}
               />
               </View>
             </View>
