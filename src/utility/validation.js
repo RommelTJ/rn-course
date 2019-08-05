@@ -26,3 +26,5 @@ const minLengthValidator = (value, minLength) => {
 const equalToValidator = (value, checkValue) => {
   return value === checkValue;
 };
+
+export default validate;
