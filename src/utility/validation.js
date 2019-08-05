@@ -17,3 +17,7 @@ const validate = (value, rules) => {
 const emailValidator = (value) => {
   // TODO: Implement email validator.
 };
+
+const minLengthValidator = (value, minLength) => {
+  // TODO: Implement min length validator.
+};
