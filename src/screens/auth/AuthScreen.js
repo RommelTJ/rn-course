@@ -84,10 +84,16 @@ class AuthScreen extends Component {
             />
             <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
-                <DefaultInput placeholder="Password" style={styles.input} />
+                <DefaultInput
+                  placeholder="Password"
+                  style={styles.input}
+                />
               </View>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
-              <DefaultInput placeholder="Confirm Password" style={styles.input} />
+              <DefaultInput
+                placeholder="Confirm Password"
+                style={styles.input}
+              />
               </View>
             </View>
           </View>
