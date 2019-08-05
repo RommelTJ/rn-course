@@ -20,7 +20,7 @@ const emailValidator = (value) => {
 };
 
 const minLengthValidator = (value, minLength) => {
-  // TODO: Implement min length validator.
+  return value.length >= minLength;
 };
 
 const equalToValidator = (value, checkValue) => {
