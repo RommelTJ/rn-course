@@ -62,7 +62,7 @@ class AuthScreen extends Component {
           {headingText}
           <View style={styles.inputContainer}>
             <ButtonWithBackground onPress={() => alert("Hello")} color="#29aaf4">Switch to Login</ButtonWithBackground>
-            <DefaultInput placeholder="Your Email Address" style={styles.input} />
+            <DefaultInput placeholder="Your Email Address" style={styles.input} value={this.state.controls.email.value} />
             <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
               <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
                 <DefaultInput placeholder="Password" style={styles.input} />
