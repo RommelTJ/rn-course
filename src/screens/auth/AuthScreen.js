@@ -139,9 +139,9 @@ class AuthScreen extends Component {
             onPress={this._signInAsync}
             color="#29aaf4"
             disabled={
-              this.state.controls.confirmPassword.valid
-              && this.state.controls.password.valid
-              && this.state.controls.email.valid
+              !this.state.controls.confirmPassword.valid
+              || !this.state.controls.password.valid
+              || !this.state.controls.email.valid
             }
           >
             Submit
