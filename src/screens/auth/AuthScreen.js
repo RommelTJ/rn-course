@@ -135,7 +135,17 @@ class AuthScreen extends Component {
               </View>
             </View>
           </View>
-          <ButtonWithBackground onPress={this._signInAsync} color="#29aaf4">Submit</ButtonWithBackground>
+          <ButtonWithBackground
+            onPress={this._signInAsync}
+            color="#29aaf4"
+            disabled={
+              this.state.controls.confirmPassword.valid
+              && this.state.controls.password.valid
+              && this.state.controls.email.valid
+            }
+          >
+            Submit
+          </ButtonWithBackground>
         </View>
       </ImageBackground>
     );
