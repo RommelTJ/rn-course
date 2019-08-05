@@ -6,6 +6,7 @@ import MainText from '../../components/UI/maintext/MainText';
 import backgroundImage from '../../assets/background.png';
 import ButtonWithBackground from '../../components/UI/button/ButtonWithBackground';
 import { ScreenOrientation } from 'expo';
+import validate from '../../utility/validation';
 
 class AuthScreen extends Component {
 
@@ -55,7 +56,7 @@ class AuthScreen extends Component {
           ...prevState.controls,
           [key]: {
             ...prevState.controls[key],
-            value: value
+            value: validate(value, prevState.controls[key].validationRules)
           }
         }
       };
