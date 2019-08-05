@@ -22,3 +22,7 @@ const emailValidator = (value) => {
 const minLengthValidator = (value, minLength) => {
   // TODO: Implement min length validator.
 };
+
+const equalToValidator = (value, checkValue) => {
+  // TODO: Implement the equalTo validator.
+};
