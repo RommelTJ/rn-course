@@ -24,5 +24,5 @@ const minLengthValidator = (value, minLength) => {
 };
 
 const equalToValidator = (value, checkValue) => {
-  // TODO: Implement the equalTo validator.
+  return value === checkValue;
 };
