@@ -13,9 +13,9 @@ class AuthScreen extends Component {
   state = {
     screenOrientation: ScreenOrientation.OrientationLock.PORTRAIT_UP,
     controls: {
-      email: { value: "", valid: false, validationRules: { isEmail: true } },
-      password: { value: "", valid: false, validationRules: { minLength: 6 } },
-      confirmPassword: { value: "", valid: false, validationRules: { equalTo: "password" } }
+      email: { value: "", valid: false, validationRules: { isEmail: true }, touched: false },
+      password: { value: "", valid: false, validationRules: { minLength: 6 }, touched: false },
+      confirmPassword: { value: "", valid: false, validationRules: { equalTo: "password" }, touched: false }
     }
   };
 
