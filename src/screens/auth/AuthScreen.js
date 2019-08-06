@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { AsyncStorage, View, StyleSheet, ImageBackground, Dimensions} from 'react-native';
 import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
@@ -7,6 +8,7 @@ import backgroundImage from '../../assets/background.png';
 import ButtonWithBackground from '../../components/UI/button/ButtonWithBackground';
 import { ScreenOrientation } from 'expo';
 import validate from '../../utility/validation';
+import { tryAuth } from "../../store/actions";
 
 class AuthScreen extends Component {
 
@@ -46,6 +48,11 @@ class AuthScreen extends Component {
 
   _signInAsync = async () => {
     await AsyncStorage.setItem('userToken', 'dummyToken', null);
+    const authData = {
+      email: this.state.controls.email.value,
+      password: this.state.controls.password.value
+    };
+    this.props.onLogin(authData);
     this.props.navigation.navigate('App');
   };
 
@@ -185,4 +192,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AuthScreen;
+const mapDispatchToProps = dispatch => {
+  return {
+    onLogin: (authData) => dispatch(tryAuth(authData))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AuthScreen);
