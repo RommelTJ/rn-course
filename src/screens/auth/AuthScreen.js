@@ -109,7 +109,13 @@ class AuthScreen extends Component {
 
     let headingText = undefined;
     if (this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP) {
-      headingText = <MainText><HeadingText>Please Log In</HeadingText></MainText>;
+      headingText = (
+        <MainText>
+          <HeadingText>
+            Please {this.state.authMode === "login" ? "Login" : "Sign Up"}
+          </HeadingText>
+        </MainText>
+      );
     }
 
     let confirmPasswordControl = undefined;
