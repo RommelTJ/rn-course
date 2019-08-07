@@ -112,6 +112,26 @@ class AuthScreen extends Component {
       headingText = <MainText><HeadingText>Please Log In</HeadingText></MainText>;
     }
 
+    let confirmPasswordControl = undefined;
+    if (this.state.authMode === "signup") {
+      confirmPasswordControl = (
+        <View style={
+          this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP
+            ? styles.portraitPasswordWrapper
+            : styles.landscapePasswordWrapper
+        }>
+          <DefaultInput
+            placeholder="Confirm Password"
+            style={styles.input}
+            value={this.state.controls.confirmPassword.value}
+            onChangeText={(value) => this.updateInputState('confirmPassword', value)}
+            valid={this.state.controls.confirmPassword.valid}
+            touched={this.state.controls.email.touched}
+          />
+        </View>
+      );
+    }
+
     return (
       <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
         <View style={styles.container}>
@@ -121,7 +141,7 @@ class AuthScreen extends Component {
               onPress={this.switchAuthModeHandler}
               color="#29aaf4"
             >
-              Switch to {this.state.authMode === "login" ? "Login" : "Sign Up"}
+              Switch to {this.state.authMode === "login" ? "Sign Up" : "Login"}
             </ButtonWithBackground>
             <DefaultInput
               placeholder="Your Email Address"
@@ -142,16 +162,7 @@ class AuthScreen extends Component {
                   touched={this.state.controls.email.touched}
                 />
               </View>
-              <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
-              <DefaultInput
-                placeholder="Confirm Password"
-                style={styles.input}
-                value={this.state.controls.confirmPassword.value}
-                onChangeText={(value) => this.updateInputState('confirmPassword', value)}
-                valid={this.state.controls.confirmPassword.valid}
-                touched={this.state.controls.email.touched}
-              />
-              </View>
+              {confirmPasswordControl}
             </View>
           </View>
           <ButtonWithBackground
