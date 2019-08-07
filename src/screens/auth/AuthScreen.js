@@ -117,7 +117,12 @@ class AuthScreen extends Component {
         <View style={styles.container}>
           {headingText}
           <View style={styles.inputContainer}>
-            <ButtonWithBackground onPress={() => alert("Hello")} color="#29aaf4">Switch to Login</ButtonWithBackground>
+            <ButtonWithBackground
+              onPress={this.switchAuthModeHandler}
+              color="#29aaf4"
+            >
+              Switch to {this.state.authMode === "login" ? "Login" : "Sign Up"}
+            </ButtonWithBackground>
             <DefaultInput
               placeholder="Your Email Address"
               style={styles.input}
