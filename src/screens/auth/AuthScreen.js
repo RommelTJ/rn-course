@@ -13,6 +13,7 @@ import { tryAuth } from "../../store/actions";
 class AuthScreen extends Component {
 
   state = {
+    authMode: "login",
     screenOrientation: ScreenOrientation.OrientationLock.PORTRAIT_UP,
     controls: {
       email: { value: "", valid: false, validationRules: { isEmail: true }, touched: false },
