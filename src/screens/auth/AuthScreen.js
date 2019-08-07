@@ -158,12 +158,12 @@ class AuthScreen extends Component {
               touched={this.state.controls.email.touched}
             />
             <View style={
-              this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP
+              this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP || this.state.authMode === "login"
                 ? styles.portraitPasswordContainer
                 : styles.landscapePasswordContainer
             }>
               <View style={
-                this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP
+                this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP || this.state.authMode === "login"
                   ? styles.portraitPasswordWrapper
                   : styles.landscapePasswordWrapper
               }>
