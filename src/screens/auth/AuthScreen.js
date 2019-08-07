@@ -39,6 +39,12 @@ class AuthScreen extends Component {
     await ScreenOrientation.lockAsync(this.state.screenOrientation);
   }
 
+  switchAuthModeHandler = () => {
+    this.setState((prevState) => {
+      return { authMode: prevState.authMode === "login" ? "signup" : "login" };
+    });
+  };
+
   toggleScreenOrientation() {
     if (this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP) {
       this.setState({screenOrientation: ScreenOrientation.OrientationLock.LANDSCAPE_LEFT})
