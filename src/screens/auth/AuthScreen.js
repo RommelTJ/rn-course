@@ -23,7 +23,7 @@ class AuthScreen extends Component {
   };
 
   static navigationOptions = {
-    title: 'Please sign in',
+    title: 'Please sign in'
   };
 
   constructor(props) {
@@ -157,8 +157,16 @@ class AuthScreen extends Component {
               valid={this.state.controls.email.valid}
               touched={this.state.controls.email.touched}
             />
-            <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
-              <View style={this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
+            <View style={
+              this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP
+                ? styles.portraitPasswordContainer
+                : styles.landscapePasswordContainer
+            }>
+              <View style={
+                this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP
+                  ? styles.portraitPasswordWrapper
+                  : styles.landscapePasswordWrapper
+              }>
                 <DefaultInput
                   placeholder="Password"
                   style={styles.input}
