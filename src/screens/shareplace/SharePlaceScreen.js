@@ -26,7 +26,16 @@ class SharePlaceScreen extends Component {
   });
 
   state = {
-    placeName: ""
+    controls: {
+      placeName: {
+        value: "",
+        valid: false,
+        touched: false,
+        validationRules: {
+          notEmpty: true
+        }
+      }
+    }
   };
 
   placeAddedHandler = () => {
