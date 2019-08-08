@@ -78,12 +78,16 @@ class SharePlaceScreen extends Component {
           <PickLocation />
 
           <PlaceInput
+            placeData={this.state.controls.placeName}
             placeName={this.state.controls.placeName.value}
             onChangeText={this.placeNameChangedHandler}
           />
 
           <View style={styles.button} >
-            <Button title="Share the place!" onPress={this.placeAddedHandler}/>
+            <Button
+              title="Share the place!"
+              onPress={this.placeAddedHandler}
+            />
           </View>
         </View>
       </ScrollView>
