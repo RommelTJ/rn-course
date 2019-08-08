@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AsyncStorage, View, StyleSheet, ImageBackground, Dimensions} from 'react-native';
+import { AsyncStorage, View, StyleSheet, ImageBackground, Dimensions, KeyboardAvoidingView} from 'react-native';
 import DefaultInput from '../../components/UI/defaultinput/DefaultInput';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
 import MainText from '../../components/UI/maintext/MainText';
@@ -141,7 +141,7 @@ class AuthScreen extends Component {
 
     return (
       <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container} behavior={"padding"} >
           {headingText}
           <View style={styles.inputContainer}>
             <ButtonWithBackground
@@ -195,7 +195,7 @@ class AuthScreen extends Component {
           >
             Submit
           </ButtonWithBackground>
-        </View>
+        </KeyboardAvoidingView>
       </ImageBackground>
     );
   }
