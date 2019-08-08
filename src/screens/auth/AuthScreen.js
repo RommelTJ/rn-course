@@ -157,7 +157,7 @@ class AuthScreen extends Component {
               onChangeText={(value) => this.updateInputState('email', value)}
               valid={this.state.controls.email.valid}
               touched={this.state.controls.email.touched}
-              autoCapitalize={false}
+              autoCapitalize={"none"}
               autoCorrect={false}
               keyboardType={"email-address"}
             />
