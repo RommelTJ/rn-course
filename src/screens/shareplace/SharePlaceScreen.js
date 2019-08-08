@@ -10,6 +10,7 @@ import PickImage from '../../components/pickimage/PickImage';
 import PickLocation from '../../components/picklocation/PickLocation';
 import MainText from '../../components/UI/maintext/MainText';
 import HeadingText from '../../components/UI/headingtext/HeadingText';
+import validate from '../../utility/validation';
 
 class SharePlaceScreen extends Component {
 
@@ -54,7 +55,9 @@ class SharePlaceScreen extends Component {
           ...prevState.controls,
           placeName: {
             ...prevState.controls.placeName,
-            value: val
+            value: val,
+            valid: validate(val, prevState.controls.placeName.validationRules),
+            touched: true
           }
         }
       }
