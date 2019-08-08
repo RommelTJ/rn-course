@@ -133,6 +133,7 @@ class AuthScreen extends Component {
             onChangeText={(value) => this.updateInputState('confirmPassword', value)}
             valid={this.state.controls.confirmPassword.valid}
             touched={this.state.controls.email.touched}
+            secureTextEntry
           />
         </View>
       );
@@ -177,6 +178,7 @@ class AuthScreen extends Component {
                   onChangeText={(value) => this.updateInputState('password', value)}
                   valid={this.state.controls.password.valid}
                   touched={this.state.controls.email.touched}
+                  secureTextEntry
                 />
               </View>
               {confirmPasswordControl}
