@@ -156,6 +156,9 @@ class AuthScreen extends Component {
               onChangeText={(value) => this.updateInputState('email', value)}
               valid={this.state.controls.email.valid}
               touched={this.state.controls.email.touched}
+              autoCapitalize={false}
+              autoCorrect={false}
+              keyboardType={"email-address"}
             />
             <View style={
               this.state.screenOrientation === ScreenOrientation.OrientationLock.PORTRAIT_UP || this.state.authMode === "login"
