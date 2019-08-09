@@ -86,6 +86,7 @@ class SharePlaceScreen extends Component {
             <Button
               title="Share the place!"
               onPress={this.placeAddedHandler}
+              disabled={!this.state.controls.placeName.valid}
             />
           </View>
         </View>
