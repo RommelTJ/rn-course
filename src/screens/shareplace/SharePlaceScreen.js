@@ -79,7 +79,6 @@ class SharePlaceScreen extends Component {
 
           <PlaceInput
             placeData={this.state.controls.placeName}
-            placeName={this.state.controls.placeName.value}
             onChangeText={this.placeNameChangedHandler}
           />
 
