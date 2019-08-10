@@ -68,6 +68,18 @@ class SharePlaceScreen extends Component {
     });
   };
 
+  locationPickedHandler = (location) => {
+    this.setState(prevState => {
+      return {
+        ...prevState.controls,
+        location: {
+          value: location,
+          valid: true
+        }
+      };
+    });
+  };
+
   render() {
     return (
       <ScrollView>
@@ -79,7 +91,7 @@ class SharePlaceScreen extends Component {
 
           <PickImage />
 
-          <PickLocation />
+          <PickLocation onLocationPick={this.locationPickedHandler} />
 
           <PlaceInput
             placeData={this.state.controls.placeName}
