@@ -44,7 +44,10 @@ class SharePlaceScreen extends Component {
   };
 
   placeAddedHandler = () => {
-    if (this.state.controls.placeName.value.trim() !== "") this.props.onAddPlace(this.state.controls.placeName.value);
+    this.props.onAddPlace(
+      this.state.controls.placeName.value,
+      this.state.controls.location.value
+    );
   };
 
   _signOutAsync = async () => {
@@ -71,10 +74,12 @@ class SharePlaceScreen extends Component {
   locationPickedHandler = (location) => {
     this.setState(prevState => {
       return {
-        ...prevState.controls,
-        location: {
-          value: location,
-          valid: true
+        controls: {
+          ...prevState.controls,
+          location: {
+            value: location,
+            valid: true
+          }
         }
       };
     });
@@ -113,7 +118,7 @@ class SharePlaceScreen extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddPlace: (name) => dispatch(addPlace(name))
+    onAddPlace: (name, location) => dispatch(addPlace(name, location))
   };
 };
 
