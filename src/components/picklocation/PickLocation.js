@@ -34,6 +34,26 @@ class PickLocation extends Component {
     });
   };
 
+  getLocationHandler = () => {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const coordsEvent = {
+          nativeEvent: {
+            coordinate: {
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            }
+          }
+        };
+        this.pickLocationHandler(coordsEvent);
+      },
+      error => {
+        console.log(error);
+        alert("Fetching the position failed. Please pick one manually.");
+      }
+    );
+  };
+
   render() {
     let marker = null;
     if (this.state.locationChosen) marker = <MapView.Marker coordinate={this.state.focusedLocation} />;
