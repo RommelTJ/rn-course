@@ -68,6 +68,7 @@ class PickLocation extends Component {
           initialRegion={this.state.focusedLocation}
           style={styles.map}
           onPress={this.pickLocationHandler}
+          region={this.state.focusedLocation}
           ref={ref => this.map = ref}
         >
           {marker}
