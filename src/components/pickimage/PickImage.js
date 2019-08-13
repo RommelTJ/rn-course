@@ -34,6 +34,7 @@ class PickImage extends Component {
 
     if (!result.cancelled) {
       this.setState({ pickedImage: result.uri });
+      this.props.onImagePicked({uri: result.uri});
     }
   };
 
