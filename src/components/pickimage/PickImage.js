@@ -41,7 +41,7 @@ class PickImage extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.placeholder} >
-          <Image source={this.state.pickedImage} style={styles.previewImage}/>
+          <Image source={{ uri: this.state.pickedImage}} style={styles.previewImage}/>
         </View>
         <View style={styles.button}>
           <Button title="Pick image" onPress={this.pickImageHandler} />
