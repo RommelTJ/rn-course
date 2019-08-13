@@ -28,13 +28,12 @@ class PickImage extends Component {
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
+      base64: true
     });
-
-    console.log(result);
 
     if (!result.cancelled) {
       this.setState({ pickedImage: result.uri });
-      this.props.onImagePicked({uri: result.uri});
+      this.props.onImagePicked({uri: result.uri, base64: result.base64});
     }
   };
 
