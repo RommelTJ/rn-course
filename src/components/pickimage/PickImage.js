@@ -1,12 +1,40 @@
 import React, { Component } from 'react';
 import { View, Image, Button, StyleSheet } from 'react-native';
-import imagePlaceholder from "../../assets/SanDiego.jpg";
 import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions';
+import Constants from 'expo-constants';
 
 class PickImage extends Component {
 
   state = {
     pickedImage: null
+  };
+
+  componentDidMount() {
+    this.getPermissionAsync();
+  }
+
+  getPermissionAsync = async () => {
+    if (Constants.platform.ios) {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      if (status !== 'granted') {
+        alert('Sorry, we need camera roll permissions to make this work!');
+      }
+    }
+  };
+
+  pickImageHandler = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      this.setState({ pickedImage: result.uri });
+    }
   };
 
   render() {
@@ -16,7 +44,7 @@ class PickImage extends Component {
           <Image source={this.state.pickedImage} style={styles.previewImage}/>
         </View>
         <View style={styles.button}>
-          <Button title="Pick image" />
+          <Button title="Pick image" onPress={this.pickImageHandler} />
         </View>
       </View>
     );
